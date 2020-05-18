@@ -1,0 +1,53 @@
+<p>create-pedido works!</p>
+<div>
+    <form (ngSubmit) = "save()">
+        <div>
+            <label for="fdireccion">Direccion</label>
+            <input type="text" class="form-control" id ="fdireccion" [(ngModel)]="pedido.direccion" name="fdireccion">
+        </div>
+        <div>
+            <label for="ffecha">Fecha</label>
+            <input type="date" class="form-control" id ="ffecha" [(ngModel)]="pedido.fecha" name="ffecha">
+        </div>
+        <div>
+            <label for="fcosto">Costo Total</label>
+            <input type="text" class="form-control" id ="fcosto" [(ngModel)]="pedido.costo_total" name="fcosto">
+        </div>
+        <div>
+            <label for="fDNI">DNI</label>
+            <input type="text" class="form-control" id ="fDNI" [(ngModel)]="fdni" name="fDNI">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </div>
+
+    </form>
+</div>
+
+<p></p>
+<p></p>
+
+<div>
+    <form (ngSubmit) = "savePP()">
+        <div>
+            <label for="Fpedido">Codigo Pedido</label>
+            <input type="number" class="form-control" id ="Fpedido" [(ngModel)]="fpedido" name="Fpedido">
+        </div>
+        <div>
+            <label for="Fproducto">Codigo Producto</label>
+            <input type="number" class="form-control" id ="Fproducto" [(ngModel)]="fproducto" name="Fproducto">
+        </div>
+        <div>
+            <label for="Fprecio">Precio Producto</label>
+            <input type="number" class="form-control" id ="Fprecio" [(ngModel)]="pedidoProducto.precio" name="Fprecio">
+        </div>
+        <div>
+            <label for="Fcantidad">Cantidad Producto</label>
+            <input type="number" class="form-control" id ="Fcantidad" [(ngModel)]="pedidoProducto.cantidad_pedida" name="Fcantidad">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">RegistrarDetalle</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<p>create-producto works!</p>
+<div>
+    <form (ngSubmit)="save()">
+        <div class="form-group">
+            <label for="Fnombre">Nombre</label>
+            <input type="text" class="form-control" id="Fnombre" [(ngModel)] ="producto.nombre" name="Fnombre">
+
+        </div>
+        <div class="form-group">
+            <label for="Fdescripcion">Descripcion</label>
+            <input type="text" class="form-control" id="Fdescripcion" [(ngModel)] ="producto.descripcion" name="Fdescripcion">
+
+        </div>
+        <div class="form-group">
+            <label for="Fprecio">Precio</label>
+            <input type="text" class="form-control" id="Fprecio" [(ngModel)] ="producto.precio" name="Fprecio">
+
+        </div>
+        <div class="form-group">
+            <label for="Fcodigo">Codigo Pizzeria</label>
+            <input type="number" class="form-control" id="Fcodigo" [(ngModel)] ="fpizza" name="Fcodigo">
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Registrar</button>
+       </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+<p>actualizar-producto works!</p>
+
+<div>
+    <form (ngSubmit)="updateProducto()">
+        <div class="form-group">
+            <label for="Fcodigo">Codigo Producto</label>
+            <input type="text" class="form-control" id="Fcodigo" [(ngModel)] ="fcodigo" name="Fcodigo">
+
+        </div>
+        <div class="form-group">
+            <label for="Fnombre">Nombre Producto</label>
+            <input type="text" class="form-control" id="Fnombre" [(ngModel)] ="producto.nombre" name="Fnombre">
+
+        </div>
+        <div class="form-group">
+            <label for="Fdescripcion">descripcion Producto</label>
+            <input type="text" class="form-control" id="Fdescripcion" [(ngModel)] ="producto.descripcion" name="Fdescripcion">
+
+        </div>
+        <div class="form-group">
+            <label for="Fprecio">Precio Producto</label>
+            <input type="text" class="form-control" id="Fprecio" [(ngModel)] ="producto.precio" name="Fprecio">
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Actualizar</button>
+       </div>
+    </form>
+</div>
