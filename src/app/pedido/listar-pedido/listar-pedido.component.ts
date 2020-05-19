@@ -18,12 +18,12 @@ export class ListarPedidoComponent implements OnInit {
   ngOnInit(): void {
     this.ListarPedidos();
   }
-
+  //mostrar pedidos
   ListarPedidos(){
     console.log("cargando!")
     this.pedidoService.getpedidos().subscribe(pedido=>this.pedido=pedido);
   }
-
+  //detallando pedido
   DetallePedidoProducto(){
     console.log("detalle!")
     this.pedidoService.getDetallePedido(this.fcodigo).subscribe(pedidos=>this.pedidos=pedidos);
