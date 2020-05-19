@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Producto } from 'src/app/entidades/producto';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-listar-producto',
@@ -40,13 +41,23 @@ export class ListarProductoComponent implements OnInit {
     this.nombreBusqueda = "";
   }
 
-  listarporCriterio()
+  listarporCriterio(formulario : NgForm)
   {
-    if ( this.opcion == "0" ) this.reloadData();
-    else if ( this.opcion == "1" )
-      this.ListarProductosporNombre();
-    else if ( this.opcion == "2" )
-      this.ListarProductosporPrecio(); 
+    if(formulario.valid == true)
+    {
+      if ( this.opcion == "0" ) { this.reloadData(); }
+      else if ( this.opcion == "1" )
+        { this.ListarProductosporNombre(); }
+      else if ( this.opcion == "2" )
+      { this.ListarProductosporPrecio(); }
+        
+      
+        formulario.resetForm();
+    }
+    else console.log("Algo esta mal");
+    
+
+    
   }
 
   //listar productos por nombre

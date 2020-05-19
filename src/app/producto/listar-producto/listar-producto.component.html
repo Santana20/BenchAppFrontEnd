@@ -10,20 +10,43 @@
     </select>
 </div>
 
-<form *ngIf="opcion != '0'" (ngSubmit)="listarporCriterio()">
+<form *ngIf="opcion != '0'" (ngSubmit)="listarporCriterio(formNuevo)" #formNuevo="ngForm">
 
     <div *ngIf="opcion == '2'" class="form-group">
         <label for="precioMenor">Precio Menor</label>
-        <input type="text" name="precioMenor" class="form-control" id="precioMenor" [(ngModel)]='precioMenor'>
+        <input type="text" name="precioMenor" class="form-control" id="precioMenor" 
+        [(ngModel)]='precioMenor' #preciomenor="ngModel" required pattern="^[0-9]+">
+
+        <div *ngIf="(preciomenor.touched) && !preciomenor.valid" class="alert alert-danger"
+        role="alert">
+            <div *ngIf="preciomenor.errors.required"> Este campo es requirida</div>
+            <div *ngIf="preciomenor.errors.pattern">El campo solo debe contener numeros.</div>
+        </div>
 
         <label for="precioMayor">Precio Mayor</label>
-        <input type="text" name="precioMayor" class="form-control" id="precioMayor" [(ngModel)]='precioMayor'>
+        <input type="text" name="precioMayor" class="form-control" id="precioMayor" 
+        [(ngModel)]='precioMayor' #preciomayor="ngModel" required pattern="^[0-9]+">
+
+        <div *ngIf="(preciomayor.touched) && !preciomayor.valid" class="alert alert-danger"
+        role="alert">
+            <div *ngIf="preciomayor.errors.required"> Este campo es requirida</div>
+            <div *ngIf="preciomayor.errors.pattern">El campo solo debe contener numeros.</div>
+       <!--<div *ngIf="preciomayor.value < preciomenor.value">Debe ser mayor que el Precio Menor</div>-->     
+        </div>
     </div>
 
     <div *ngIf="opcion == '1'" class="form-group">
         <label for="nombreBusqueda">Nombre</label>
-        <input type="text" name="nombreBusqueda" class="form-control" id="nombreBusqueda" [(ngModel)]='nombreBusqueda'>
+        <input type="text" name="nombreBusqueda" class="form-control" 
+        #nombre="ngModel" id="nombreBusqueda" [(ngModel)]='nombreBusqueda' required
+        maxlength="50" pattern="^[a-zA-Z ]+">
+        <div *ngIf="(nombre.touched) && !nombre.valid" class="alert alert-danger"
+        role="alert">
+            <div *ngIf="nombre.errors.required"> Este campo es requirida</div>
+            <div *ngIf="nombre.errors.pattern">El campo solo debe contener letras.</div>
+        </div>  
     </div>
+
     <br>
     <button type="submit" class="btn btn-success">Filtrar</button>
 </form>
