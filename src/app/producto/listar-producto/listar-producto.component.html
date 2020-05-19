@@ -1,12 +1,39 @@
 <p>listar-producto works!</p>
 
+<p class="card-header"> Criterio de Busqueda</p>
+
+<div>
+    <select [(ngModel)]="opcion" (ngModelChange)="setOpcion($event)">
+        <option value="0">---</option>
+        <option value="1" >Nombre</option>
+        <option value="2">Precio</option>
+    </select>
+</div>
+
+<form *ngIf="opcion != '0'" (ngSubmit)="listarporCriterio()">
+
+    <div *ngIf="opcion == '2'" class="form-group">
+        <label for="precioMenor">Precio Menor</label>
+        <input type="text" name="precioMenor" class="form-control" id="precioMenor" [(ngModel)]='precioMenor'>
+
+        <label for="precioMayor">Precio Mayor</label>
+        <input type="text" name="precioMayor" class="form-control" id="precioMayor" [(ngModel)]='precioMayor'>
+    </div>
+
+    <div *ngIf="opcion == '1'" class="form-group">
+        <label for="nombreBusqueda">Nombre</label>
+        <input type="text" name="nombreBusqueda" class="form-control" id="nombreBusqueda" [(ngModel)]='nombreBusqueda'>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Filtrar</button>
+</form>
+
 
 <div>
     <label for="Fcodigo">Codigo Producto </label>
-        <input type="text" class="form-control" id="Fcodigo" name="Fcodigo"
-                  [(ngModel)]="fcodigo">
-        <button (click)="DeleteProducto()">Eliminar</button>
-
+    <input type="text" class="form-control" id="Fcodigo" name="Fcodigo" [(ngModel)]="fcodigo">
+    <br>
+    <button (click)="DeleteProducto()" class="btn btn-danger">Eliminar</button>
 </div>
 
 <div class ="card border-dar mb-3">

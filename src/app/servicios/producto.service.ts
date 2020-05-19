@@ -23,6 +23,24 @@ export class ProductoService {
     return this.http.get(this.urlBase+"/mostrarProductos").pipe(map(response =>response as Producto[]));
   }
 
+  getProductoporNombre(nombre : String) : Observable<any>
+  {
+    console.log(this.urlBase + '/buscarNombreProducto/' + nombre);
+    return this.http.get(this.urlBase 
+      + '/buscarNombreProducto/' + nombre).pipe(
+        map(response => response as Producto[])
+      );
+  }
+
+  getProductoporPrecio(p1 : number, p2 : number) : Observable<any>
+  {
+    console.log(this.urlBase + '/buscarporPrecioProducto/' + p1 + '/' + p2);
+    return this.http.get(this.urlBase + '/buscarporPrecioProducto/' 
+    + p1 + '/' + p2).pipe(
+        map(response => response as Producto[])
+      );
+  }
+
   DeleteProducto(fcodigo:number):Observable<any>{
     console.log("llamando a rest :"+this.urlBase+"/eliminarProducto/"+fcodigo);
     return this.http.delete(this.urlBase+"/eliminarProducto/"+fcodigo).pipe(
