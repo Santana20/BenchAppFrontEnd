@@ -17,6 +17,9 @@ import { ListarOfertaComponent } from './oferta/listar-oferta/listar-oferta.comp
 import { ActualizarOfertaComponent } from './oferta/actualizar-oferta/actualizar-oferta.component';
 import { CreateProductoOfertaComponent } from './producto-oferta/create-producto-oferta/create-producto-oferta.component';
 import { ListarProductoOfertaComponent } from './producto-oferta/listar-producto-oferta/listar-producto-oferta.component';
+import { CreatePizzeriaComponent } from './pizzeria/create-pizzeria/create-pizzeria.component';
+import { ActualizarPizzeriaComponent } from './pizzeria/actualizar-pizzeria/actualizar-pizzeria.component';
+import { ListarPizzeriaComponent } from './pizzeria/listar-pizzeria/listar-pizzeria.component';
 
 
 
@@ -33,7 +36,10 @@ import { ListarProductoOfertaComponent } from './producto-oferta/listar-producto
     ListarOfertaComponent,
     ActualizarOfertaComponent,
     CreateProductoOfertaComponent,
-    ListarProductoOfertaComponent
+    ListarProductoOfertaComponent,
+    CreatePizzeriaComponent,
+    ActualizarPizzeriaComponent,
+    ListarPizzeriaComponent
    
     
     

@@ -1,0 +1,23 @@
+<p>create-pizzeria works!</p>
+<div>
+    <form (ngSubmit)="save()">
+        <div class="form-group">
+            <label for="Fdescripcion">Descripcion</label>
+            <input type="text" class="form-control" id="Fdescripcion" [(ngModel)] ="pizzeria.descripcion" name="Fdescripcion">
+
+        </div>
+        <div class="form-group">
+            <label for="Fdireccion">Direccion</label>
+            <input type="text" class="form-control" id="Fdireccion" [(ngModel)] ="pizzeria.direccion" name="Fdireccion">
+
+        </div>
+        <div class="form-group">
+            <label for="Ftelefono">Telefono</label>
+            <input type="text" class="form-control" id="Ftelefono" [(ngModel)] ="pizzeria.telefono" name="Ftelefono">
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Registrar</button>
+       </div>
+    </form>
+</div>
