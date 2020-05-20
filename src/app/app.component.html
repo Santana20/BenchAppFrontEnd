@@ -3,9 +3,45 @@
 <nav>
     <a routerLink="newPedido" class ="btn btn-primary active">Crear Pedido</a>
     <a routerLink="listPedido" class ="btn btn-primary active">Lista de Pedido</a>
-    <a routerLink="newProducto" class ="btn btn-primary active">Crear Producto</a>
-    <a routerLink="listProducto" class ="btn btn-primary active">Lista de Producto</a>
-    <a routerLink="updateProducto" class ="btn btn-primary active">Actualizar Producto</a>
+    
+
+    <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mantenimiento  Producto
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a routerLink="newProducto" class ="btn btn-primary active" class="dropdown-item">Crear Producto</a>
+            <a routerLink="listProducto" class ="btn btn-primary active" class="dropdown-item">Lista de Producto</a>
+            <a routerLink="updateProducto" class ="btn btn-primary active" class="dropdown-item">Actualizar Producto</a>
+          
+            
+        </div>
+    </div>
+
+    
+
+    <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mantenimiento  oferta
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a routerLink="newOferta" class ="btn btn-primary active" class="dropdown-item">Registrar Oferta</a>
+            <a routerLink="listOferta" class ="btn btn-primary active" class="dropdown-item">Lista de Oferta</a>
+            <a routerLink="updateOferta" class ="btn btn-primary active" class="dropdown-item">Actualizar Oferta</a>
+            
+        </div>
+    </div>
+
+    <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mantenimiento Producto oferta
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a routerLink="newPROOfer" class ="btn btn-primary active" class="dropdown-item">registrar Product-Ofer</a>
+            <a routerLink="listarPROOfer" class ="btn btn-primary active" class="dropdown-item">listar Product-Ofer</a>
+        </div>
+    </div>
+
     
 
 </nav>

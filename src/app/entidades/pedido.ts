@@ -6,7 +6,8 @@ export class Pedido {
     direccion:string;
     fecha:Date;
     costo_total:number;
-    pedido_producto:Observable<ProductoPedido>;
+    codigoProducto:number;
+    
     
     
 }

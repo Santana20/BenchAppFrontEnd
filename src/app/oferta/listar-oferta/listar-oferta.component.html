@@ -1,0 +1,44 @@
+<p>listar-oferta works!</p>
+<h5>Buscardor De oferta po Titulo</h5>
+<div>
+    <label for="Ftitulo">Titulo Oferta </label>
+    <input type="text" class="form-control" id="Ftitulo" name="Ftitulo"
+                  [(ngModel)]="ftitulo">
+    <button (click)="searchOferta()" class="btn btn-secondary">Buscar</button>
+
+</div>
+
+<h5>Eliminar oferta por codigo</h5>
+<div>
+    <label for="Fcodigo">codigo Oferta </label>
+    <input type="number" class="form-control" id="Fcodigo" name="Fcodigo"
+                  [(ngModel)]="fcodigo">
+    <button (click)="deleteOfert()" class="btn btn-secondary">eliminar</button>
+
+</div>
+
+
+<div class ="card border-dar mb-3">
+    <h5 class ="card-title"></h5>
+    <div>
+        <table class ="table table-dark">
+            <thead>
+                <tr>
+                    <th>codigo</th>
+                    <th>titulo</th>
+                    <th>descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of oferta">
+                    <th>{{p.codigo}}</th>
+                    <th>{{p.titulo}}</th>
+                    <th>{{p.descripcion}}</th>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

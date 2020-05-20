@@ -1,0 +1,40 @@
+<p>create-producto-oferta works!</p>
+
+<div>
+    <form (ngSubmit)="save()">
+        <div class="form-group">
+            <label for="Fcodigop">Codigo producto</label>
+            <input type="text" class="form-control" id="Fcodigop" [(ngModel)] ="fproducto" name="Fcodigop">
+
+        </div>
+        <div class="form-group">
+            <label for="Fcodigoo">Codigo Oferta</label>
+            <input type="text" class="form-control" id="Fcodigoo" [(ngModel)] ="foferta" name="Fcodigoo">
+
+        </div>
+        <div class="form-group">
+            <label for="Ffechaini">Fecha inicio</label>
+            <input type="date" class="form-control" id="Ffechaini" [(ngModel)] ="productOfer.fecha_inicio" name="Ffechaini">
+
+        </div>
+        <div class="form-group">
+            <label for="Ffechafin">Fecha fin</label>
+            <input type="date" class="form-control" id="Ffechafin" [(ngModel)] ="productOfer.fecha_fin" name="Ffechafin">
+
+        </div>
+        <div class="form-group">
+            <label for="Fdescuento">Descuento</label>
+            <input type="number" class="form-control" id="Fdescuento" [(ngModel)] ="productOfer.descuento" name="Fdescuento">
+
+        </div>
+        <div class="form-group">
+            <label for="Ftotal">total</label>
+            <input type="number" class="form-control" id="Ftotal" [(ngModel)] ="productOfer.total" name="Ftotal">
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Registrar</button>
+       </div>
+
+    </form>
+</div>
