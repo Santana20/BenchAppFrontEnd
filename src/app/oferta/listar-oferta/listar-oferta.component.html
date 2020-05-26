@@ -1,21 +1,33 @@
 <p>listar-oferta works!</p>
 <h5>Buscardor De oferta po Titulo</h5>
-<div>
-    <label for="Ftitulo">Titulo Oferta </label>
-    <input type="text" class="form-control" id="Ftitulo" name="Ftitulo"
-                  [(ngModel)]="ftitulo">
-    <button (click)="searchOferta()" class="btn btn-secondary">Buscar</button>
+<form (ngSubmit)="searchOferta()" #buscarOferta="ngForm">
+    <div>
+        <label for="Ftitulo">Titulo Oferta </label>
+        <input type="text" class="form-control" id="Ftitulo" name="Ftitulo" required
+                      [(ngModel)]="ftitulo" #Ftitulo="ngModel">
+                      <div *ngIf="Ftitulo.invalid && (Ftitulo.dirty || Ftitulo.touched)" class="alert alert-danger">
+                        <div *ngIf="Ftitulo.errors.required">El Titulo es Requerido</div>
+                    </div>
+        <button type="submit" class="btn btn-secondary" [disabled]="!buscarOferta.form.valid">Buscar</button>
+    
+    </div>
+</form>
 
-</div>
 
 <h5>Eliminar oferta por codigo</h5>
-<div>
-    <label for="Fcodigo">codigo Oferta </label>
-    <input type="number" class="form-control" id="Fcodigo" name="Fcodigo"
-                  [(ngModel)]="fcodigo">
-    <button (click)="deleteOfert()" class="btn btn-secondary">eliminar</button>
+<form (ngSubmit)="deleteOfert()" #borrarOferta="ngForm">
+    <div>
+        <label for="Fcodigo">codigo Oferta </label>
+        <input type="number" class="form-control" id="Fcodigo" name="Fcodigo" required
+                      [(ngModel)]="fcodigo" #Fcodigo="ngModel">
+                      <div *ngIf="Fcodigo.invalid && (Fcodigo.dirty || Fcodigo.touched)" class="alert alert-danger">
+                        <div *ngIf="Fcodigo.errors.required">El Codigo es Requerido</div>
+                    </div>
+        <button type="submit" class="btn btn-secondary" [disabled]="!borrarOferta.form.valid">eliminar</button>
+    
+    </div>
+</form>
 
-</div>
 
 
 <div class ="card border-dar mb-3">

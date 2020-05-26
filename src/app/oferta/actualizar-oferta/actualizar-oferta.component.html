@@ -1,24 +1,33 @@
 <p>actualizar-oferta works!</p>
 
 <div>
-    <form (ngSubmit)="updateOferta()">
+    <form (ngSubmit)="updateOferta()" #actualizarOferta="ngForm">
         <div class="form-group">
             <label for="Fcodigo">Codigo Oferta</label>
-            <input type="text" class="form-control" id="Fcodigo" [(ngModel)] ="fcodigo" name="Fcodigo">
+            <input type="text" class="form-control" id="Fcodigo" required [(ngModel)] ="fcodigo" name="Fcodigo" #Fcodigo="ngModel">
+            <div *ngIf="Fcodigo.invalid && (Fcodigo.dirty || Fcodigo.touched)" class="alert alert-danger">
+                <div *ngIf="Fcodigo.errors.required">El Codigo es Requerido</div>
+            </div>
 
         </div>
         <div class="form-group">
             <label for="Ftitulo">Titulo Oferta</label>
-            <input type="text" class="form-control" id="Ftitulo" [(ngModel)] ="oferta.titulo" name="Ftitulo">
+            <input type="text" class="form-control" id="Ftitulo" required [(ngModel)] ="oferta.titulo" name="Ftitulo" #Ftitulo="ngModel">
+            <div *ngIf="Ftitulo.invalid && (Ftitulo.dirty || Ftitulo.touched)" class="alert alert-danger">
+                <div *ngIf="Ftitulo.errors.required">El Titulo es Requerido</div>
+            </div>
 
         </div>
         <div class="form-group">
             <label for="Fdescripcion">Descripcion Oferta</label>
-            <input type="text" class="form-control" id="Fdescripcion" [(ngModel)] ="oferta.descripcion" name="Fdescripcion">
+            <input type="text" class="form-control" id="Fdescripcion" required [(ngModel)] ="oferta.descripcion" name="Fdescripcion" #Fdescripcion="ngModel">
+            <div *ngIf="Fdescripcion.invalid && (Fdescripcion.dirty || Fdescripcion.touched)" class="alert alert-danger">
+                <div *ngIf="Fdescripcion.errors.required">La Descripcion es Requerida</div>
+            </div>
 
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Actualizar</button>
+            <button type="submit" class="btn btn-success" [disabled]="!actualizarOferta.form.valid">Actualizar</button>
        </div>
         
 

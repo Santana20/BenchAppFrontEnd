@@ -1,28 +1,40 @@
 <p>create-producto works!</p>
 <div>
-    <form (ngSubmit)="save()">
+    <form (ngSubmit)="save()" #createProducto="ngForm">
         <div class="form-group">
             <label for="Fnombre">Nombre</label>
-            <input type="text" class="form-control" id="Fnombre" [(ngModel)] ="producto.nombre" name="Fnombre">
+            <input type="text" class="form-control" id="Fnombre" required  [(ngModel)] ="producto.nombre" name="Fnombre" #Fnombre="ngModel">
+            <div *ngIf="Fnombre.invalid && (Fnombre.dirty || Fnombre.touched)" class="alert alert-danger">
+                <div *ngIf="Fnombre.errors.required">El Nombre es Requerido</div>
+            </div>
 
         </div>
         <div class="form-group">
             <label for="Fdescripcion">Descripcion</label>
-            <input type="text" class="form-control" id="Fdescripcion" [(ngModel)] ="producto.descripcion" name="Fdescripcion">
+            <input type="text" class="form-control" id="Fdescripcion" required [(ngModel)] ="producto.descripcion" name="Fdescripcion" #Fdescripcion="ngModel">
+            <div *ngIf="Fdescripcion.invalid && (Fdescripcion.dirty || Fdescripcion.touched)" class="alert alert-danger">
+                <div *ngIf="Fdescripcion.errors.required">La Descripcion es Requerida</div>
+            </div>
 
         </div>
         <div class="form-group">
             <label for="Fprecio">Precio</label>
-            <input type="text" class="form-control" id="Fprecio" [(ngModel)] ="producto.precio" name="Fprecio">
+            <input type="number" class="form-control" id="Fprecio" required [(ngModel)] ="producto.precio" name="Fprecio" #Fprecio="ngModel">
+            <div *ngIf="Fprecio.invalid && (Fprecio.dirty || Fprecio.touched)" class="alert alert-danger">
+                <div *ngIf="Fprecio.errors.required">El Precio es Requerido</div>
+            </div>
 
         </div>
         <div class="form-group">
             <label for="Fcodigo">Codigo Pizzeria</label>
-            <input type="number" class="form-control" id="Fcodigo" [(ngModel)] ="fpizza" name="Fcodigo">
+            <input type="number" class="form-control" id="Fcodigo" required [(ngModel)] ="fpizza" name="Fcodigo" #Fcodigo="ngModel">
+            <div *ngIf="Fcodigo.invalid && (Fcodigo.dirty || Fcodigo.touched)" class="alert alert-danger">
+                <div *ngIf="Fcodigo.errors.required">El Codigo es Requerido</div>
+            </div>
 
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled]="!createProducto.form.valid">Registrar</button>
        </div>
     </form>
 </div>

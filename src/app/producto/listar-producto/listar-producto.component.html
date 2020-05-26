@@ -2,6 +2,7 @@
 
 <p class="card-header"> Criterio de Busqueda</p>
 
+
 <div>
     <select [(ngModel)]="opcion" (ngModelChange)="setOpcion($event)">
         <option value="0">---</option>
@@ -48,16 +49,21 @@
     </div>
 
     <br>
-    <button type="submit" class="btn btn-success">Filtrar</button>
+    <button type="submit" class="btn btn-success" [disabled]="!formNuevo.form.valid">Filtrar</button>
 </form>
 
+<form (ngSubmit)="DeleteProducto()" #deleteProducto="ngForm">
+    <div>
+        <label for="Fcodigo">Codigo Producto </label>
+        <input type="number" class="form-control" id="Fcodigo" name="Fcodigo" required [(ngModel)]="fcodigo" #Fcodigo="ngModel">
+        <div *ngIf="Fcodigo.invalid && (Fcodigo.dirty || Fcodigo.touched)" class="alert alert-danger">
+            <div *ngIf="Fcodigo.errors.required">El Codigo es Requerido</div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-danger" [disabled]="!deleteProducto.form.valid">Eliminar</button>
+    </div>
+</form>
 
-<div>
-    <label for="Fcodigo">Codigo Producto </label>
-    <input type="text" class="form-control" id="Fcodigo" name="Fcodigo" [(ngModel)]="fcodigo">
-    <br>
-    <button (click)="DeleteProducto()" class="btn btn-danger">Eliminar</button>
-</div>
 
 <div class ="card border-dar mb-3">
     <h5 class ="card-title">Listado de Productos</h5>

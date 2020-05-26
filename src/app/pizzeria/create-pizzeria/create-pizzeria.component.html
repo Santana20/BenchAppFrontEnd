@@ -1,23 +1,32 @@
 <p>create-pizzeria works!</p>
 <div>
-    <form (ngSubmit)="save()">
+    <form (ngSubmit)="save()" #crearPizzeria="ngForm">
         <div class="form-group">
             <label for="Fdescripcion">Descripcion</label>
-            <input type="text" class="form-control" id="Fdescripcion" [(ngModel)] ="pizzeria.descripcion" name="Fdescripcion">
+            <input type="text" class="form-control" id="Fdescripcion" required [(ngModel)] ="pizzeria.descripcion" name="Fdescripcion" #Fdescripcion="ngModel">
+            <div *ngIf="Fdescripcion.invalid && (Fdescripcion.dirty || Fdescripcion.touched)" class="alert alert-danger">
+                <div *ngIf="Fdescripcion.errors.required">La Descripcion es Requerida</div>
+            </div>
 
         </div>
         <div class="form-group">
             <label for="Fdireccion">Direccion</label>
-            <input type="text" class="form-control" id="Fdireccion" [(ngModel)] ="pizzeria.direccion" name="Fdireccion">
+            <input type="text" class="form-control" id="Fdireccion" required [(ngModel)] ="pizzeria.direccion" name="Fdireccion" #Fdireccion="ngModel">
+            <div *ngIf="Fdireccion.invalid && (Fdireccion.dirty || Fdireccion.touched)" class="alert alert-danger">
+                <div *ngIf="Fdireccion.errors.required">La Direccion es Requerida</div>
+            </div>
 
         </div>
         <div class="form-group">
             <label for="Ftelefono">Telefono</label>
-            <input type="text" class="form-control" id="Ftelefono" [(ngModel)] ="pizzeria.telefono" name="Ftelefono">
+            <input type="text" class="form-control" id="Ftelefono" required [(ngModel)] ="pizzeria.telefono" name="Ftelefono" #Ftelefono="ngModel">
+            <div *ngIf="Ftelefono.invalid && (Ftelefono.dirty || Ftelefono.touched)" class="alert alert-danger">
+                <div *ngIf="Ftelefono.errors.required">El Telefono es Requerido</div>
+            </div>
 
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success" [disabled]="!crearPizzeria.form.valid">Registrar</button>
        </div>
     </form>
 </div>

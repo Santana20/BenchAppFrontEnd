@@ -1,26 +1,41 @@
 <p>listar-producto-oferta works!</p>
 
 <h5>buscador por fechas</h5>
-<div>
-    <label for="Finicial">fecha inicial </label>
-    <input type="date" class="form-control" id="Finicial" name="Finicial"
-                  [(ngModel)]="finicial">
-    <label for="Ffinal">fecha inicial </label>
-    <input type="date" class="form-control" id="Ffinal" name="Ffinal"
-                    [(ngModel)]="ffinal">
-    <button (click)="searFecha()" class="btn btn-secondary">Buscar Rango</button>
+<form (ngSubmit)="searFecha()" #buscarFecha="ngForm">
+    <div>
+        <label for="Finicial">Fecha inicial </label>
+        <input type="date" class="form-control" id="Finicial" name="Finicial" required
+                  [(ngModel)]="finicial" #Finicial="ngModel">
+                  <div *ngIf="Finicial.invalid && (Finicial.dirty || Finicial.touched)" class="alert alert-danger">
+                    <div *ngIf="Finicial.errors.required">La Fecha Inicial es Requerida</div>
+                </div>
+        <label for="Ffinal">Fecha Final </label>
+        <input type="date" class="form-control" id="Ffinal" name="Ffinal" required
+                    [(ngModel)]="ffinal" #Ffinal="ngModel">
+                    <div *ngIf="Ffinal.invalid && (Ffinal.dirty || Ffinal.touched)" class="alert alert-danger">
+                        <div *ngIf="Ffinal.errors.required">La Fecha Final es Requerida</div>
+                    </div>
+        <button type="submit" class="btn btn-secondary" [disabled]="!buscarFecha.form.valid">Buscar Rango</button>
 
-</div>
+    </div>
+</form>
+
 
 
 <h5>Codigo a eliminar</h5>
-<div>
-    <label for="Fcodigo">Codigo </label>
-    <input type="number" class="form-control" id="Fcodigo" name="Fcodigo"
-                    [(ngModel)]="fcodigo">
-    <button (click)="eliminarProductO()" class="btn btn-secondary">Eliminar</button>
+<form (ngSubmit)="eliminarProductO()" #borrarProdOfert="ngForm">
+    <div>
+        <label for="Fcodigo">Codigo </label>
+        <input type="number" class="form-control" id="Fcodigo" name="Fcodigo" required
+                        [(ngModel)]="fcodigo" #Fcodigo="ngModel">
+                        <div *ngIf="Fcodigo.invalid && (Fcodigo.dirty || Fcodigo.touched)" class="alert alert-danger">
+                            <div *ngIf="Fcodigo.errors.required">El Codigo es Requerido</div>
+                        </div>
+        <button type="submit" class="btn btn-secondary" [disabled]="!borrarProdOfert.form.valid">Eliminar</button>
+    
+    </div>
+</form>
 
-</div>
 <div class ="card border-dar mb-3">
     <h5 class ="card-title">Listado de Producto Oferta</h5>
     <div>
