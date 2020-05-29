@@ -6,7 +6,7 @@ export class Pedido {
     direccion:string;
     fecha:Date;
     costo_total:number;
-    codigoProducto:number;
+    
     
     
     

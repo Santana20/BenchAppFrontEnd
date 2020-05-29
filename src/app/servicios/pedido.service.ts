@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Pedido } from '../entidades/pedido';
 import {map} from 'rxjs/operators';
+import { PedidoProducto } from '../entidades/pedido-producto';
 
 
 @Injectable({
@@ -30,11 +31,11 @@ export class PedidoService {
     return this.http.post(this.urlBase+"/RegistrarPP/"+fpedido+"/"+fproducto,pedidoProducto,{headers:this.httpHeaders})
   }
 
-  getDetallePedido(codigo:number):Observable<any>{
-    console.log("llamando a rest :"+this.urlBase+"/detallePedido/"+codigo);
-    return this.http.get(this.urlBase+"/detallePedido/"+codigo).pipe(
-      map(response =>response as Pedido[])
-    );
+  
+  getDetallePedido(fcodigo):Observable<any>{
+    console.log("llamando a rest :"+this.urlBase+'/otenerPedidoProducto/'+fcodigo);
+    return this.http.get(this.urlBase+'/otenerPedidoProducto/'+fcodigo).pipe(
+      map(response=>response as PedidoProducto[])
+    )
   }
-
 }
