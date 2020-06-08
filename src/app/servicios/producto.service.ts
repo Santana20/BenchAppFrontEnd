@@ -8,7 +8,8 @@ import { Producto } from '../entidades/producto';
   providedIn: 'root'
 })
 export class ProductoService {
-  private urlBase='http://localhost:8080/api';
+  
+  private urlBase='http://localhost:8762/product/api';
   private httpHeaders=new HttpHeaders({'Content-type' : 'application/json'});
 
   constructor(private http:HttpClient) { }
