@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { observable, Observable } from 'rxjs';
+import {  Observable } from 'rxjs';
 import { ProductoOferta } from 'src/app/entidades/producto-oferta';
 import { ProductoOfertaService } from 'src/app/servicios/producto-oferta.service';
 import { Router } from '@angular/router';
+import { ProductoService } from 'src/app/servicios/producto.service';
+import { Producto } from 'src/app/entidades/producto';
 
 
 @Component({
@@ -12,11 +14,12 @@ import { Router } from '@angular/router';
 })
 export class ListarProductoOfertaComponent implements OnInit {
   ProductOfert:Observable<ProductoOferta>
+  productos:Observable<Producto>
  
   finicial:String
   ffinal:String
   fcodigo:number
-  constructor(private productoofertaService:ProductoOfertaService,private router:Router) { }
+  constructor(private productoService:ProductoService ,private productoofertaService:ProductoOfertaService,private router:Router) { }
 
   ngOnInit(): void {
     this.reloadData();
@@ -25,6 +28,7 @@ export class ListarProductoOfertaComponent implements OnInit {
   reloadData(){
     console.log("cargando lista!")
     this.productoofertaService.getListaProductoOferta().subscribe(ProductOfert=>this.ProductOfert=ProductOfert);
+    this.productoService.getProductoLista().subscribe(productos=>this.productos=productos);
   }
 
   searFecha(){

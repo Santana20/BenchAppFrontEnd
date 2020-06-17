@@ -40,7 +40,7 @@
     
     <h5 class ="card-title"> Detalle de Pedido</h5>
     <div>
-        <form (ngSubmit)="DetallePedidoProducto()" #buscarDetalle="ngForm">
+        <form (ngSubmit)="getDetallePedidoProducto()" #buscarDetalle="ngForm">
             <div>
                 <label for="FCodigo">Codigo de Pedido</label>
                 <input type="number" class="form-control" id="FCodigo" name="FCodigo" required
@@ -59,14 +59,18 @@
             <th>precio</th>
             <th>cantidad pedida</th>
             <th>codigo Producto</th>
+            <th>Producto</th>
+            <th>Pedido</th>
             
         </thead>
         <tbody>
-            <tr *ngFor="let p of pedidos">
+            <tr *ngFor="let p of pedidoProducto">
                 <th>{{p.codigo}}</th>
                 <th>{{p.precio}}</th>
                 <th>{{p.cantidad_pedida}}</th>
                 <th>{{p.codigoProducto}}</th>
+                <th>{{p.producto.nombre}}</th>
+                <th>{{p.pedido.codigo}}</th>
                 
 
             </tr>
