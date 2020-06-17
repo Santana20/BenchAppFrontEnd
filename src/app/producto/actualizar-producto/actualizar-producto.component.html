@@ -1,6 +1,7 @@
 <p>actualizar-producto works!</p>
 
 <div>
+    
     <form (ngSubmit)="updateProducto()" #actualizarProducto="ngForm">
         <div class="form-group">
             <label for="Fcodigo">Codigo Producto</label>
@@ -34,6 +35,8 @@
             </div>
 
         </div>
+        
+        
         <div class="form-group">
             <button type="submit" class="btn btn-success" [disabled]="!actualizarProducto.form.valid">Actualizar</button>
        </div>

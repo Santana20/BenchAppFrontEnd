@@ -1,5 +1,9 @@
 <p>create-producto works!</p>
+
+
+
 <div>
+    
     <form (ngSubmit)="save()" #createProducto="ngForm">
         <div class="form-group">
             <label for="Fnombre">Nombre</label>
@@ -33,8 +37,17 @@
             </div>
 
         </div>
+        <div class="input-group">
+            <div class="custom-file">
+              <input (change)="seleccionarImagen($event)" type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+              <label class="custom-file-label" for="inputGroupFile04">Elegir Imagen</label>
+            </div>
+            
+          </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success" [disabled]="!createProducto.form.valid">Registrar</button>
+           
        </div>
     </form>
+    
 </div>

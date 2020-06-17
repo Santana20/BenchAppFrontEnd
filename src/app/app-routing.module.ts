@@ -13,16 +13,23 @@ import { ListarProductoOfertaComponent } from './producto-oferta/listar-producto
 import { ListarPizzeriaComponent } from './pizzeria/listar-pizzeria/listar-pizzeria.component';
 import { CreatePizzeriaComponent } from './pizzeria/create-pizzeria/create-pizzeria.component';
 import { ActualizarPizzeriaComponent } from './pizzeria/actualizar-pizzeria/actualizar-pizzeria.component';
+import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component';
+import { ActImgComponent } from './producto/actualizar-producto/act-img/act-img.component';
+
+
 
 
 
 const routes: Routes = [
   {path:'',redirectTo:'customer',pathMatch:'full'},
+  {path:'listCliente',component:ListarClienteComponent},
   {path:'newPedido',component:CreatePedidoComponent},
   {path:'listPedido',component:ListarPedidoComponent},
   {path:'newProducto',component:CreateProductoComponent},
   {path:'listProducto',component:ListarProductoComponent},
+
   {path:'updateProducto',component:ActualizarProductoComponent},
+  
   {path:'newOferta',component:CreateOfertaComponent},
   {path:'listOferta',component:ListarOfertaComponent},
   {path:'updateOferta',component:ActualizarOfertaComponent},
@@ -30,7 +37,12 @@ const routes: Routes = [
   {path:'listarPROOfer',component:ListarProductoOfertaComponent},
   {path:'ListPizzeria',component:ListarPizzeriaComponent},
   {path:'newPizzeria',component:CreatePizzeriaComponent},
-  {path:'updatePizzeria',component:ActualizarPizzeriaComponent}
+  {path:'updatePizzeria',component:ActualizarPizzeriaComponent},
+
+  {path:'producto/actimg/:codigo',component:ActImgComponent}
+
+
+ 
 
 
  

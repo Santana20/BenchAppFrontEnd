@@ -1,52 +1,62 @@
-<h5>BENCH APP</h5>
+<h2>Toto's Pizzeria<span class="badge badge-secondary">Admin</span></h2>
 
-<nav>
-    <a routerLink="newPedido" class ="btn btn-primary active">Crear Pedido</a>
-    <a routerLink="listPedido" class ="btn btn-primary active">Lista de Pedido</a>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:black;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <a routerLink="newPedido" class ="nav-link">Crear Pedido</a>
+    <a routerLink="listPedido" class ="nav-link">Lista de Pedido</a>
+    <a routerLink="listCliente" class ="nav-link">Clientes</a>
     
-
-    <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mantenimiento  Producto
-        </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a routerLink="newProducto" class ="btn btn-primary active" class="dropdown-item">Crear Producto</a>
-            <a routerLink="listProducto" class ="btn btn-primary active" class="dropdown-item">Lista de Producto</a>
-            <a routerLink="updateProducto" class ="btn btn-primary active" class="dropdown-item">Actualizar Producto</a>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento  Producto
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="newProducto">Crear Producto</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="listProducto">Lista de Producto</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="updateProducto">Actualizar Producto</a>
           
-            
         </div>
-    </div>
+      </li>
 
     
 
-    <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mantenimiento  oferta
-        </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a routerLink="newOferta" class ="btn btn-primary active" class="dropdown-item">Registrar Oferta</a>
-            <a routerLink="listOferta" class ="btn btn-primary active" class="dropdown-item">Lista de Oferta</a>
-            <a routerLink="updateOferta" class ="btn btn-primary active" class="dropdown-item">Actualizar Oferta</a>
-            
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento  oferta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="newOferta">Registrar Oferta</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="listOferta">Lista de Oferta</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="updateOferta">Actualizar Oferta</a>
+          
         </div>
-    </div>
-
-    <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mantenimiento Producto oferta
-        </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a routerLink="newPROOfer" class ="btn btn-primary active" class="dropdown-item">registrar Product-Ofer</a>
-            <a routerLink="listarPROOfer" class ="btn btn-primary active" class="dropdown-item">listar Product-Ofer</a>
-        </div>
-    </div>
-
-    <a routerLink="ListPizzeria" class ="btn btn-primary active" >Datos Pizzeria</a>
-    <a routerLink="newPizzeria" class ="btn btn-primary active" >Registrar Pizzeria</a>
-    <a routerLink="updatePizzeria" class ="btn btn-primary active" >Actualizar Pizzeria</a>
+      </li>
+    
 
     
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento Producto oferta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="newPROOfer">registrar Product-Ofer</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="listarPROOfer">listar Product-Ofer</a>
+          
+        </div>
+      </li>
+    
+
+    <a routerLink="ListPizzeria" class ="nav-link" >Datos Pizzeria</a>
+    <a routerLink="newPizzeria" class ="nav-link" >Registrar Pizzeria</a>
+    <a routerLink="updatePizzeria" class ="nav-link" >Actualizar Pizzeria</a>
+
+</div>
 
 </nav>
 

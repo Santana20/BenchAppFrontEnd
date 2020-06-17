@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { Producto } from '../entidades/producto';
+
+import swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -52,4 +54,42 @@ export class ProductoService {
     console.log("llamando a rest :"+this.urlBase+"/actualizarProducto/"+fcodigo);
     return this.http.post(this.urlBase+"/actualizarProducto/"+fcodigo,producto,{headers:this.httpHeaders});
   }
+
+  getProductoC(fcodigo:number):Observable<any>{
+    console.log("Llamando a rest: "+this.urlBase+"/buscarProducto/"+fcodigo);
+    return this.http.get(this.urlBase 
+      + '/buscarProducto/' + fcodigo).pipe(
+        map(response => response as Producto[])
+      );
+    }
+
+  subirImagen(archivo:File,id):Observable<any>{
+    let formData=new FormData();
+    formData.append("archivo",archivo);
+    formData.append("id",id);
+    return this.http.post(this.urlBase+'/producto/upload',formData).pipe(
+      map((response:any)=>response.producto as Producto),
+      catchError(e=>{
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje,e.error.error,'error');
+        return throwError(e);
+      })
+    )
+  }
+
+  subirImagenC(archivo:File,producto):Observable<any>{
+    let formData=new FormData();
+    formData.append("archivo",archivo);
+    formData.append("producto",producto);
+    return this.http.post(this.urlBase+'/producto/uploadC',formData).pipe(
+      map((response:any)=>response.producto as Producto),
+      catchError(e=>{
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje,e.error.error,'error');
+        return throwError(e);
+      })
+    )
+  }
+  
+
 }
