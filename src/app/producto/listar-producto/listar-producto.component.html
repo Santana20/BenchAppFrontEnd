@@ -72,6 +72,7 @@
             <thead>
                 <tr>
                     <th>codigo</th>
+                    <th>Imagen</th>
                     <th>nombre</th>
                     <th>descripcion</th>
                     <th>precio</th>
@@ -80,6 +81,7 @@
             <tbody>
                 <tr *ngFor="let p of producto">
                     <th>{{p.codigo}}</th>
+                    <th><img *ngIf="p.imagen" src="http://localhost:8080/api/uploads/img/{{p.imagen}}" alt="{{p.imagen}}" width="100px" class="img-thumbnail rounded" ></th>
                     <th>{{p.nombre}}</th>
                     <th>{{p.descripcion}}</th>
                     <th>{{p.precio}}</th>

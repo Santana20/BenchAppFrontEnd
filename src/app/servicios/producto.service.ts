@@ -11,11 +11,12 @@ import swal from 'sweetalert2';
 })
 export class ProductoService {
   private urlBase='http://localhost:8080/api';
-  private httpHeaders=new HttpHeaders({'Content-type' : 'application/json'});
+  private httpHeaders=new HttpHeaders({'Content-Type' : 'application/json'});
 
   constructor(private http:HttpClient) { }
 
-  createProducto(producto:Object,fpizza:number):Observable<Object>{
+  createProducto(producto:Object,fpizza:number):Observable<any>{
+    
     return this.http.post(this.urlBase+"/producto/"+fpizza,producto,{headers:this.httpHeaders});
   }
 
@@ -63,32 +64,25 @@ export class ProductoService {
       );
     }
 
-  subirImagen(archivo:File,id):Observable<any>{
-    let formData=new FormData();
-    formData.append("archivo",archivo);
-    formData.append("id",id);
-    return this.http.post(this.urlBase+'/producto/upload',formData).pipe(
-      map((response:any)=>response.producto as Producto),
-      catchError(e=>{
-        console.error(e.error.mensaje);
-        swal.fire(e.error.mensaje,e.error.error,'error');
-        return throwError(e);
-      })
-    )
-  }
+    subirImagen(archivo:File,id):Observable<any>{
+      let formData=new FormData();
+      formData.append("archivo",archivo);
+      formData.append("id",id);
+      return this.http.post(this.urlBase+'/producto/upload',formData).pipe(
+        map((response:any)=>response.producto as Producto),
+        catchError(e=>{
+          console.error(e.error.mensaje);
+          swal.fire(e.error.mensaje,e.error.error,'error');
+          return throwError(e);
+        })
+      )
+    }
 
-  subirImagenC(archivo:File,producto):Observable<any>{
+  subirImagenC(archivo:File):Observable<any>{
     let formData=new FormData();
     formData.append("archivo",archivo);
-    formData.append("producto",producto);
-    return this.http.post(this.urlBase+'/producto/uploadC',formData).pipe(
-      map((response:any)=>response.producto as Producto),
-      catchError(e=>{
-        console.error(e.error.mensaje);
-        swal.fire(e.error.mensaje,e.error.error,'error');
-        return throwError(e);
-      })
-    )
+    return this.http.post(this.urlBase+'/producto/uploadC',formData,{headers:this.httpHeaders});
+    
   }
   
 

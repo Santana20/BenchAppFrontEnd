@@ -36,9 +36,13 @@ export class ActImgComponent implements OnInit {
     this.productoService.subirImagen(this.imagenSeleccionada,this.producto.codigo).subscribe(
       producto=>{
         this.producto=producto;
-        swal.fire("La foto se subio completamente!","La imagen: "+this.producto.imagen,'success')
-        this.router.navigate(['/listProducto']);
+        swal.fire("La imagen se subio completamente!","La imagen: "+this.producto.imagen,'success')
+        //this.router.navigate(['/listProducto']);
       }
     )
+  }
+
+  irAlista(){
+    this.router.navigate(['/listProducto']);
   }
 }
