@@ -11,8 +11,11 @@ import { PedidoProducto } from 'src/app/entidades/pedido-producto';
   styleUrls: ['./listar-pedido.component.css']
 })
 export class ListarPedidoComponent implements OnInit {
-  pedido:Observable<Pedido>
-  pedidos:Observable<ProductoPedido>
+  //variables
+  listarPedidosActivos:Observable<Pedido>;
+  listarPedidosPasados:Observable<Pedido>;
+  
+  
   fcodigo:number
   pedidoProducto:Observable<PedidoProducto>
   constructor(private pedidoService:PedidoService) { }
@@ -23,11 +26,16 @@ export class ListarPedidoComponent implements OnInit {
   //mostrar pedidos
   ListarPedidos(){
     console.log("cargando!")
-    this.pedidoService.getpedidos().subscribe(pedido=>this.pedido=pedido);
+    this.pedidoService.listarPedidosActivos().subscribe(pedido=>this.listarPedidosActivos=pedido);
+
+    this.pedidoService.listarPedidosPasados().subscribe(pedido=>this.listarPedidosPasados=pedido);
   }
+
+
   //detallando pedido
-  getDetallePedidoProducto(){
-    this.pedidoService.getDetallePedido(this.fcodigo).subscribe(pedidoProducto=>this.pedidoProducto=pedidoProducto);
+  getDetallePedidoProducto(codigo : number){
+    this.fcodigo = codigo;
+    this.pedidoService.getDetallePedido(codigo).subscribe(pedidoProducto=>this.pedidoProducto=pedidoProducto);
   }
 
 }

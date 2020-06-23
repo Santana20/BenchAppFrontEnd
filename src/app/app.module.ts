@@ -20,7 +20,13 @@ import { ListarProductoOfertaComponent } from './producto-oferta/listar-producto
 import { CreatePizzeriaComponent } from './pizzeria/create-pizzeria/create-pizzeria.component';
 import { ActualizarPizzeriaComponent } from './pizzeria/actualizar-pizzeria/actualizar-pizzeria.component';
 import { ListarPizzeriaComponent } from './pizzeria/listar-pizzeria/listar-pizzeria.component';
+import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+
+import  { MatSelectModule } from '@angular/material/select';
+import { ActImgComponent } from './producto/actualizar-producto/act-img/act-img.component';
 
 
 
@@ -39,7 +45,10 @@ import { ListarPizzeriaComponent } from './pizzeria/listar-pizzeria/listar-pizze
     ListarProductoOfertaComponent,
     CreatePizzeriaComponent,
     ActualizarPizzeriaComponent,
-    ListarPizzeriaComponent
+    ListarPizzeriaComponent,
+    ListarClienteComponent,
+    ActImgComponent
+    
    
     
     
@@ -48,7 +57,9 @@ import { ListarPizzeriaComponent } from './pizzeria/listar-pizzeria/listar-pizze
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

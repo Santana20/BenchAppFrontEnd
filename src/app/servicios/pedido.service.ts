@@ -38,4 +38,20 @@ export class PedidoService {
       map(response=>response as PedidoProducto[])
     )
   }
+
+  listarPedidosActivos() : Observable<any>
+  {
+    console.log("llamando a rest");
+    return this.http.get(this.urlBase + "/listarPedidosActivos").pipe(
+      map(response => response as Pedido[])
+    );
+  }
+
+  listarPedidosPasados() : Observable<any>
+  {
+    console.log("llamando a rest");
+    return this.http.get(this.urlBase + "/listarPedidosPasados").pipe(
+      map(response => response as Pedido[])
+    );
+  }
 }
