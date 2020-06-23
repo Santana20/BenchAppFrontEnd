@@ -9,7 +9,7 @@ import { Cliente } from '../entidades/cliente';
 })
 export class ClienteService {
   
-  private urlBase = 'localhost:8080/api';
+  private urlBase = 'http://localhost:8080/api';
   private httpHeaders = new HttpHeaders({'Content-type' : 'application/json'});
 
   constructor(private http: HttpClient) { }
