@@ -27,6 +27,7 @@ export class CreateProductoComponent implements OnInit {
 
   save(){
     console.log(this.producto);
+    this.fpizza=1;
     this.productoService.createProducto(this.producto,this.fpizza).subscribe(
       prod=>{
         this.p=prod;

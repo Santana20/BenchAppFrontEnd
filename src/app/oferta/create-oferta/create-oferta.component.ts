@@ -18,6 +18,7 @@ export class CreateOfertaComponent implements OnInit {
 
   save(){
     console.log(this.oferta)
+    this.fpizza=1;
     this.ofertaSerive.createOferta(this.oferta,this.fpizza).subscribe(
      data=>this.router.navigate(['/listOferta'])
     );

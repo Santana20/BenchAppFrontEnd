@@ -3,21 +3,31 @@
 <div>
     <form (ngSubmit)="save()" #createProductOfert="ngForm">
         <div class="form-group">
-            <label for="Fcodigop">Codigo producto</label>
-            <input type="text" class="form-control" id="Fcodigop" required [(ngModel)] ="fproducto" name="Fcodigop" #Fcodigop="ngModel">
-            <div *ngIf="Fcodigop.invalid && (Fcodigop.dirty || Fcodigop.touched)" class="alert alert-danger">
-                <div *ngIf="Fcodigop.errors.required">El Codigo Producto es Requerido</div>
-            </div>
+            <label for="type">Stock</label>
+            <select [compareWith]="compararTipo" type="text" class="form-control" id="type"
+                  [(ngModel)]="productOfer.producto" name="type">
+                  <option [ngValue]="undefined">
+                        --- Seleccione Tipo ----
+                  </option>
+                  <option *ngFor="let tipo of productos" [ngValue]="tipo">
+                        {{tipo.nombre}}
+                  </option>
+            </select>
+      </div>
 
-        </div>
-        <div class="form-group">
-            <label for="Fcodigoo">Codigo Oferta</label>
-            <input type="text" class="form-control" id="Fcodigoo" required [(ngModel)] ="foferta" name="Fcodigoo" #Fcodigoo="ngModel">
-            <div *ngIf="Fcodigoo.invalid && (Fcodigoo.dirty || Fcodigoo.touched)" class="alert alert-danger">
-                <div *ngIf="Fcodigoo.errors.required">El Codigo Oferta es Requerido</div>
-            </div>
+      <div class="form-group">
+        <label for="type">Stock</label>
+        <select [compareWith]="compararTipoo" type="text" class="form-control" id="type"
+              [(ngModel)]="productOfer.oferta" name="type">
+              <option [ngValue]="undefined">
+                    --- Seleccione Tipo ----
+              </option>
+              <option *ngFor="let tipo of ofertas" [ngValue]="tipo">
+                    {{tipo.titulo}}
+              </option>
+        </select>
+  </div>
 
-        </div>
         <div class="form-group">
             <label for="Ffechaini">Fecha inicio</label>
             <input type="date" class="form-control" id="Ffechaini" required [(ngModel)] ="productOfer.fecha_inicio" name="Ffechaini" #Ffechaini="ngModel">
