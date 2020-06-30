@@ -1,7 +1,7 @@
 import { ProductoPedido } from './producto-pedido';
 import { Observable } from 'rxjs';
 import { PedidoProducto } from './pedido-producto';
-import { Cliente } from './cliente';
+import { Usuario } from './cliente';
 
 export class Pedido {
     codigo:number;
@@ -10,6 +10,6 @@ export class Pedido {
     fecha_recepcion:Date;
     status:boolean;
     costo_total:number;
-    cliente:Cliente;
+    usuario:Usuario;
     productos: PedidoProducto[]
 }

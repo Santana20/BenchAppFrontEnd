@@ -23,10 +23,13 @@ import { ListarPizzeriaComponent } from './pizzeria/listar-pizzeria/listar-pizze
 import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { AuthGuard } from "./servicios/servicio-auth/guards/auth.guard";
+import { RoleGuard } from "./servicios/servicio-auth/guards/role.guard";
 
 import  { MatSelectModule } from '@angular/material/select';
 import { ActImgComponent } from './producto/actualizar-producto/act-img/act-img.component';
+import { LoginComponent } from './cliente/login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -47,7 +50,9 @@ import { ActImgComponent } from './producto/actualizar-producto/act-img/act-img.
     ActualizarPizzeriaComponent,
     ListarPizzeriaComponent,
     ListarClienteComponent,
-    ActImgComponent
+    ActImgComponent,
+    LoginComponent,
+    HeaderComponent
     
    
     

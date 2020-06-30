@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cliente } from 'src/app/entidades/cliente';
+import { Usuario } from 'src/app/entidades/cliente';
 import { ClienteService } from 'src/app/servicios/cliente.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -16,7 +16,7 @@ interface NombreBusqueda{
   styleUrls: ['./listar-cliente.component.css']
 })
 export class ListarClienteComponent implements OnInit {
-  cliente:Observable<Cliente>
+  cliente:Observable<Usuario>
   Dni:String;
   Nombre:String;
   opcion : String;

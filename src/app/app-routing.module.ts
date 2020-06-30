@@ -15,13 +15,14 @@ import { CreatePizzeriaComponent } from './pizzeria/create-pizzeria/create-pizze
 import { ActualizarPizzeriaComponent } from './pizzeria/actualizar-pizzeria/actualizar-pizzeria.component';
 import { ListarClienteComponent } from './cliente/listar-cliente/listar-cliente.component';
 import { ActImgComponent } from './producto/actualizar-producto/act-img/act-img.component';
+import { LoginComponent } from './cliente/login/login.component';
 
 
 
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'customer',pathMatch:'full'},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'listCliente',component:ListarClienteComponent},
   {path:'newPedido',component:CreatePedidoComponent},
   {path:'listPedido',component:ListarPedidoComponent},
@@ -38,7 +39,7 @@ const routes: Routes = [
   {path:'ListPizzeria',component:ListarPizzeriaComponent},
   {path:'newPizzeria',component:CreatePizzeriaComponent},
   {path:'updatePizzeria',component:ActualizarPizzeriaComponent},
-
+  {path:'login',component:LoginComponent},
   {path:'producto/actimg/:codigo',component:ActImgComponent}
 
 

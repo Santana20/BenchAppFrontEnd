@@ -1,0 +1,77 @@
+<div>
+    <h1>Toto's Pizzeria</h1>
+    <div class="navbar-nav ml-auto">
+
+        <a *ngIf="!isAuthenticated()" class="nav-item nav-link" routerLink="login">Log In</a>
+        <li *ngIf="isAuthenticated()" class="dropdown">
+        <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{getNombreUsuario()}}
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <button (click)="logout()" class="dropdown-item" type="submit">Sign Out</button>
+        </div>
+        </li>
+
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:black;">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!--<a routerLink="newPedido" class ="nav-link">Crear Pedido</a>-->
+    <a routerLink="listPedido" class ="nav-link">Lista de Pedido</a>
+    <a routerLink="listCliente" class ="nav-link">Clientes</a>
+    
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento  Producto
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="newProducto">Crear Producto</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="listProducto">Lista de Producto</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="updateProducto">Actualizar Producto</a>
+          
+        </div>
+    </li>
+
+    
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento  oferta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="newOferta">Registrar Oferta</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="listOferta">Lista de Oferta</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="updateOferta">Actualizar Oferta</a>
+          
+        </div>
+      </li>
+    
+
+    
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mantenimiento Producto oferta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="newPROOfer">registrar Product-Ofer</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="listarPROOfer">listar Product-Ofer</a>
+          
+        </div>
+      </li>
+    
+
+    <a routerLink="ListPizzeria" class ="nav-link" >Datos Pizzeria</a>
+    <a routerLink="newPizzeria" class ="nav-link" >Registrar Pizzeria</a>
+    <a routerLink="updatePizzeria" class ="nav-link" >Actualizar Pizzeria</a>
+
+</div>
+
+</nav>
