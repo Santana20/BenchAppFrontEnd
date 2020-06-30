@@ -19,32 +19,32 @@ import { LoginComponent } from './cliente/login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { RegistrarAdminComponent } from './cliente/registrar-admin/registrar-admin.component';
 
-
-
+import { AuthGuard } from "./servicios/servicio-auth/guards/auth.guard";
+import { RoleGuard } from "./servicios/servicio-auth/guards/role.guard";
 
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'listCliente',component:ListarClienteComponent},
-  {path:'newPedido',component:CreatePedidoComponent},
-  {path:'listPedido',component:ListarPedidoComponent},
-  {path:'newProducto',component:CreateProductoComponent},
-  {path:'listProducto',component:ListarProductoComponent},
+  {path:'listCliente',component:ListarClienteComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'newPedido',component:CreatePedidoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'listPedido',component:ListarPedidoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'newProducto',component:CreateProductoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'listProducto',component:ListarProductoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
 
-  {path:'updateProducto',component:ActualizarProductoComponent},
+  {path:'updateProducto',component:ActualizarProductoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   
-  {path:'newOferta',component:CreateOfertaComponent},
-  {path:'listOferta',component:ListarOfertaComponent},
-  {path:'updateOferta',component:ActualizarOfertaComponent},
-  {path:'newPROOfer',component:CreateProductoOfertaComponent},
-  {path:'listarPROOfer',component:ListarProductoOfertaComponent},
-  {path:'ListPizzeria',component:ListarPizzeriaComponent},
-  {path:'newPizzeria',component:CreatePizzeriaComponent},
-  {path:'updatePizzeria',component:ActualizarPizzeriaComponent},
+  {path:'newOferta',component:CreateOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'listOferta',component:ListarOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'updateOferta',component:ActualizarOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'newPROOfer',component:CreateProductoOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'listarPROOfer',component:ListarProductoOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'ListPizzeria',component:ListarPizzeriaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'newPizzeria',component:CreatePizzeriaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'updatePizzeria',component:ActualizarPizzeriaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   {path:'login',component:LoginComponent},
-  {path:'menu',component:HeaderComponent},
-  {path:'registrarAdmin',component:RegistrarAdminComponent},
-  {path:'producto/actimg/:codigo',component:ActImgComponent}
+  {path:'menu',component:HeaderComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'registrarAdmin',component:RegistrarAdminComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'producto/actimg/:codigo',component:ActImgComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }}
  
 ];
 
