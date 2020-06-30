@@ -18,7 +18,7 @@ export class ProductoService {
 
   createProducto(producto:Object,fpizza:number):Observable<any>{
     
-    return this.http.post(this.urlBase+"/producto/"+fpizza,producto,{headers:this.authService.agregarAuthorizationHeader(this.httpHeaders)});
+    return this.http.post(this.urlBase+"/producto/"+fpizza,producto, {headers:this.httpHeaders});
   }
 
 
@@ -70,8 +70,7 @@ export class ProductoService {
       let formData=new FormData();
       formData.append("archivo",archivo);
       formData.append("id",id);
-      return this.http.post(this.urlBase+'/producto/upload',formData,
-      {headers:this.authService.agregarAuthorizationHeader(this.httpHeaders)}).pipe(
+      return this.http.post(this.urlBase+'/producto/upload',formData).pipe(
         map((response:any)=>response.producto as Producto),
         catchError(e=>{
           console.error(e.error.mensaje);
@@ -84,7 +83,7 @@ export class ProductoService {
   subirImagenC(archivo:File):Observable<any>{
     let formData=new FormData();
     formData.append("archivo",archivo);
-    return this.http.post(this.urlBase+'/producto/uploadC',formData,{headers:this.authService.agregarAuthorizationHeader(this.httpHeaders)});
+    return this.http.post(this.urlBase+'/producto/uploadC',formData,{headers : this.httpHeaders});
     
   }
   
