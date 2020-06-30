@@ -21,11 +21,11 @@ export class ListarOfertaComponent implements OnInit {
 
   reloadData(){
     console.log("reloadOferta!")
-    this.ofertaService.getOgertaLista().subscribe(oferta=>this.oferta=oferta);
+    this.ofertaService.getOfertaLista().subscribe(oferta=>this.oferta=oferta);
   }
 
-  deleteOfert(){
-    this.ofertaService.deleteOferta(this.fcodigo).subscribe(
+  deleteOfert(index : number){
+    this.ofertaService.deleteOferta(index).subscribe(
      data =>this.router.navigate(['/listOferta'])
     );
   }

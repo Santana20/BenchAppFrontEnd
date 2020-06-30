@@ -36,8 +36,8 @@ export class ListarProductoOfertaComponent implements OnInit {
     this.productoofertaService.getBuscarrangoFecha(this.finicial,this.ffinal).subscribe(ProductOfert=>this.ProductOfert=ProductOfert);
   }
 
-  eliminarProductO(){
-    this.productoofertaService.eliminarproducofer(this.fcodigo).subscribe(
+  eliminarProductO(index : number){
+    this.productoofertaService.eliminarproducofer(index).subscribe(
      data=>this.router.navigate([])
     );
   }

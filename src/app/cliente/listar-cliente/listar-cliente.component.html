@@ -6,7 +6,6 @@
         <mat-select [(value)]="opcion">
           <mat-option value="0">None</mat-option>
           <mat-option value="1">Nombre</mat-option>
-          <mat-option value="2">DNI</mat-option>
         </mat-select>
       </mat-form-field>
       
@@ -15,16 +14,6 @@
 
 
 <form *ngIf="opcion != '0'" (ngSubmit)="listarporCriterio(formNuevo)" #formNuevo="ngForm">
-    <div *ngIf="opcion == '2'" class="form-group">
-         <label for="Dni">DNI</label>
-         <input type="text" name="Dni" class="form-control" id="Dni"  
-         [(ngModel)]='Dni' #dni="ngModel" required  pattern="^[0-9]+">
-         <div *ngIf="(dni.touched) && !dni.valid" class="alert alert-danger"
-         role="alert">
-         <div *ngIf="dni.errors.required"> Este campo es requirida</div>
-         <div *ngIf="dni.errors.pattern">El campo solo debe contener numeros.</div>
-     </div>
-    </div>
     <div *ngIf="opcion == '1'" class="form-group">
         <label for="nombreBusqueda">Nombre</label>
         <input type="text" name="nombreBusqueda" class="form-control" 
@@ -49,23 +38,18 @@
         <table class ="table table-dark">
             <thead>
                 <tr>
-                    
-                    <th>ID</th>
-                    <th>DNI</th>
+                    <th>Username</th>
                     <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>e-mail</th>
-                    <th>Contraseña</th>
-                    <th>Telefono</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let c of cliente">
-                    <th>{{c.codigo}}</th>
-                    <th>{{c.dni}}</th>
+                    <th>{{c.username}}</th>
                     <th>{{c.nombre}}</th>
+                    <th>{{c.apellido}}</th>
                     <th>{{c.email}}</th>
-                    <th>{{c.passsword}}</th>
-                    <th>{{c.telefono}}</th>
                 </tr>
             </tbody>
 

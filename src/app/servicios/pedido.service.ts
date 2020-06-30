@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Pedido } from '../entidades/pedido';
 import {map} from 'rxjs/operators';
 import { PedidoProducto } from '../entidades/pedido-producto';
+import { AuthService } from './servicio-auth/auth.service';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class PedidoService {
   private urlBase='http://localhost:8080/api';
   private httpHeaders=new HttpHeaders({'Content-type' : 'application/json'});
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private authService : AuthService) { }
 
   CreatePedido(pedido:Object,dni:String):Observable<Object>{
     return this.http.post(this.urlBase+"/pedido/"+dni,pedido,{headers:this.httpHeaders})
@@ -42,7 +43,7 @@ export class PedidoService {
   listarPedidosActivos() : Observable<any>
   {
     console.log("llamando a rest");
-    return this.http.get(this.urlBase + "/listarPedidosActivos").pipe(
+    return this.http.get(this.urlBase + "/listarPedidosActivos", {headers:this.authService.agregarAuthorizationHeader(this.httpHeaders)}).pipe(
       map(response => response as Pedido[])
     );
   }
@@ -50,7 +51,7 @@ export class PedidoService {
   listarPedidosPasados() : Observable<any>
   {
     console.log("llamando a rest");
-    return this.http.get(this.urlBase + "/listarPedidosPasados").pipe(
+    return this.http.get(this.urlBase + "/listarPedidosPasados", {headers:this.authService.agregarAuthorizationHeader(this.httpHeaders)}).pipe(
       map(response => response as Pedido[])
     );
   }

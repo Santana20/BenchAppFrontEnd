@@ -51,7 +51,7 @@
     <br>
     <button type="submit" class="btn btn-success" [disabled]="!formNuevo.form.valid">Filtrar</button>
 </form>
-
+<!--
 <form (ngSubmit)="DeleteProducto()" #deleteProducto="ngForm">
     <div>
         <label for="Fcodigo">Codigo Producto </label>
@@ -62,7 +62,7 @@
         <br>
         <button type="submit" class="btn btn-danger" [disabled]="!deleteProducto.form.valid">Eliminar</button>
     </div>
-</form>
+</form>-->
 
 
 <div class ="card border-dar mb-3">
@@ -76,6 +76,7 @@
                     <th>nombre</th>
                     <th>descripcion</th>
                     <th>precio</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,6 +86,11 @@
                     <th>{{p.nombre}}</th>
                     <th>{{p.descripcion}}</th>
                     <th>{{p.precio}}</th>
+                    <th>
+                        <div>
+                            <a class="btn btn-danger" (click)="DeleteProducto(p.codigo)">Eliminar</a>
+                        </div>
+                    </th>
                 </tr>
             </tbody>
 

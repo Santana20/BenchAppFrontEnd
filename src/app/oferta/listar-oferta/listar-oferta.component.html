@@ -13,23 +13,6 @@
     </div>
 </form>
 
-
-<h5>Eliminar oferta por codigo</h5>
-<form (ngSubmit)="deleteOfert()" #borrarOferta="ngForm">
-    <div>
-        <label for="Fcodigo">codigo Oferta </label>
-        <input type="number" class="form-control" id="Fcodigo" name="Fcodigo" required
-                      [(ngModel)]="fcodigo" #Fcodigo="ngModel">
-                      <div *ngIf="Fcodigo.invalid && (Fcodigo.dirty || Fcodigo.touched)" class="alert alert-danger">
-                        <div *ngIf="Fcodigo.errors.required">El Codigo es Requerido</div>
-                    </div>
-        <button type="submit" class="btn btn-secondary" [disabled]="!borrarOferta.form.valid">eliminar</button>
-    
-    </div>
-</form>
-
-
-
 <div class ="card border-dar mb-3">
     <h5 class ="card-title"></h5>
     <div>
@@ -46,7 +29,11 @@
                     <th>{{p.codigo}}</th>
                     <th>{{p.titulo}}</th>
                     <th>{{p.descripcion}}</th>
-
+                    <th>
+                        <div>
+                            <a class="btn btn-danger" (click)="deleteOfert(p.codigo)">Eliminar</a>
+                        </div>
+                    </th>
                 </tr>
             </tbody>
 

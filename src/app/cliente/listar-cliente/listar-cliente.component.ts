@@ -21,8 +21,6 @@ export class ListarClienteComponent implements OnInit {
   Nombre:String;
   opcion : String;
   nombreBusqueda:String;
-  
-
 
   constructor(private clienteService:ClienteService,private router:Router) {
     this.opcion = "0";
@@ -54,8 +52,8 @@ export class ListarClienteComponent implements OnInit {
       if ( this.opcion == "0" ) { this.reloadData(); }
       else if ( this.opcion == "1" )
         { this.ClienteporNombre(); }
-      else if ( this.opcion == "2" )
-      { this.ClienteporDNI(); }
+      //else if ( this.opcion == "2" )
+      //{ this.ClienteporDNI(); }
         
       
         formulario.resetForm();
@@ -66,14 +64,8 @@ export class ListarClienteComponent implements OnInit {
     
   }
 
-  ClienteporDNI(){
-    this.clienteService.getClienteporDNI(this.Dni).subscribe(
-     cliente=>this.cliente=cliente
-    );
-  }
-
   ClienteporNombre(){
-    this.clienteService.getClienteporNombre(this.Nombre).subscribe(
+    this.clienteService.getClienteporNombre(this.nombreBusqueda).subscribe(
      cliente=>this.cliente=cliente
     );
   }

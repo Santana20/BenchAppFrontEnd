@@ -21,14 +21,14 @@ export class ClienteService {
 
   getClienteLista():Observable<any>{
     console.log("llamado a rest :"+this.urlBase+"/clientes");
-    return this.http.get(this.urlBase+"/clientes").pipe(map(response =>response as Usuario[]));
+    return this.http.get(this.urlBase+"/clientes", { headers: this.authService.agregarAuthorizationHeader(this.httpHeaders) }).pipe(map(response =>response as Usuario[]));
   }
 
   getClienteporNombre(nombre : String) : Observable<any>
   {
     console.log(this.urlBase + '/buscarNombre/' + nombre);
     return this.http.get(this.urlBase 
-      + '/buscarNombre/' + nombre).pipe(
+      + '/buscarNombre/' + nombre, { headers: this.authService.agregarAuthorizationHeader(this.httpHeaders) }).pipe(
         map(response => response as Usuario[])
       );
   }

@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Pizzeria } from '../entidades/pizzeria';
+import { AuthService } from './servicio-auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ export class PizzeriaService {
   private urlBase='http://localhost:8080/api';
   private httpHeaders=new HttpHeaders({'Content-type' : 'application/json'});
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private authService : AuthService) { }
 
   createPizzeria(pizzeria:Object):Observable<Object>{
-    return this.http.post(this.urlBase+"/pizzeria",pizzeria,{headers:this.httpHeaders});
+    return this.http.post(this.urlBase+"/pizzeria",pizzeria,{headers:this.authService.agregarAuthorizationHeader(this.httpHeaders)});
   }
 
 
@@ -25,7 +26,7 @@ export class PizzeriaService {
 
   updatePizzeria(pizzeria:Object,fcodigo:number):Observable<any>{
     console.log("llamando a rest:"+this.urlBase+"/actualizarPizzeria/"+fcodigo);
-    return this.http.post(this.urlBase+"/actualizarPizzeria/"+fcodigo,pizzeria,{headers:this.httpHeaders});
+    return this.http.post(this.urlBase+"/actualizarPizzeria/"+fcodigo,pizzeria,{headers:this.authService.agregarAuthorizationHeader(this.httpHeaders)});
   }
 
  

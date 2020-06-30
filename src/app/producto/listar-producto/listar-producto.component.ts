@@ -80,8 +80,8 @@ export class ListarProductoComponent implements OnInit {
     );
   }
 
-  DeleteProducto(){
-    this.productoService.DeleteProducto(this.fcodigo).subscribe(
+  DeleteProducto(index : number){
+    this.productoService.DeleteProducto(index).subscribe(
       data=>this.router.navigate(['/listProducto'])
     );
     this.router.navigate(['/listProducto'])
