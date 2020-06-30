@@ -14,16 +14,23 @@ export class ActualizarProductoComponent implements OnInit {
   producto:Producto=new Producto();
   fcodigo:number;
   private imagenSeleccionada: File;
+  productos:Producto[];
   constructor(private productoService:ProductoService,private router:Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+    this.cargando()
+  }
+
+  cargando(){
+    console.log("cargando productos");
+    this.productoService.getProductoLista().subscribe(productos=>this.productos=productos);
+    console.log(this.productos)
   }
   updateProducto(){
     console.log(this.producto);
   
-    this.productoService.updateProducto(this.fcodigo,this.producto).subscribe(
-      data=>this.router.navigate(['/producto/actimg/'+this.fcodigo])
+    this.productoService.updateProducto(this.producto.codigo,this.producto).subscribe(
+      data=>this.router.navigate(['/producto/actimg/'+this.producto.codigo])
     );
   }
 
@@ -33,12 +40,19 @@ export class ActualizarProductoComponent implements OnInit {
   }
 
   subirImagen(){
-    this.productoService.subirImagen(this.imagenSeleccionada,this.fcodigo).subscribe(
+    this.productoService.subirImagen(this.imagenSeleccionada,this.producto.codigo).subscribe(
       producto=>{
         this.producto=producto;
         
       }
     )
+  }
+
+  compararTipo(o1:Producto, o2:Producto) : boolean{
+    if (o1===undefined && o2===undefined){
+      return true;
+    }
+     return o1 === null || o2 === null || o1 === undefined || o2 === undefined  ? false : o1.codigo === o2.codigo 
   }
 
 }
