@@ -39,14 +39,21 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.usuario).subscribe(response => 
       {
-        console.log("login: " + response.access_token);
+        if(this.authService.guardarUsuario(response.access_token))
+        {
+          this.authService.guardarToken(response.access_token);
 
-        this.authService.guardarUsuario(response.access_token);
-        this.authService.guardarToken(response.access_token);
-        let usu = this.authService.getUsuario();
-        this.router.navigate(['customer']);
+          console.log("login: " + response.access_token);
+          let usu = this.authService.getUsuario();
+          this.router.navigate(['listPedido']);
 
-        console.log("Hola" + usu.username + "has iniciado sesión con éxito!");
+          console.log("Hola" + usu.username + "has iniciado sesión con éxito!");
+        }
+        else
+        {
+          console.log("No tiene acceso a este recurso");
+          this.router.navigate(['/login']);
+        }
       }, 
       err =>
       {

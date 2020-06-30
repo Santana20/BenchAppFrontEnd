@@ -62,7 +62,7 @@ export class AuthService {
     return this.http.post<any>(urlEndpoint, params.toString(), { headers : httpHeaders });
   }
 
-  guardarUsuario(accesToken : string) : void
+  guardarUsuario(accesToken : string) : boolean
   {
     let payload = this.obtenerDatosToken(accesToken);
 
@@ -73,7 +73,8 @@ export class AuthService {
     this.usuario.username = payload.user_name;
     this.usuario.roles = payload.authorities;
 
-    sessionStorage.setItem('usuario', JSON.stringify(this.usuario));
+    if(this.usuario.roles.includes("ROLE_ADMIN")) {sessionStorage.setItem('usuario', JSON.stringify(this.usuario)); return true;}
+    else return false;
   }
 
   guardarToken(accesToken : string) : void

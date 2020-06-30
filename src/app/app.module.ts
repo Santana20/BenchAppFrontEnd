@@ -30,6 +30,7 @@ import  { MatSelectModule } from '@angular/material/select';
 import { ActImgComponent } from './producto/actualizar-producto/act-img/act-img.component';
 import { LoginComponent } from './cliente/login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { RegistrarAdminComponent } from './cliente/registrar-admin/registrar-admin.component';
 
 
 
@@ -52,7 +53,8 @@ import { HeaderComponent } from './header/header.component';
     ListarClienteComponent,
     ActImgComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegistrarAdminComponent
     
    
     

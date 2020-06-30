@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Usuario } from '../entidades/cliente';
+import { AuthService } from './servicio-auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,12 @@ export class ClienteService {
   private urlBase = 'http://localhost:8080/api';
   private httpHeaders = new HttpHeaders({'Content-type' : 'application/json'});
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService : AuthService) { }
   
+  createAdmin(usuario:Object) : Observable<Object>{
+    return this.http.post(this.urlBase+'/RegistrarAdmin', usuario, { headers: this.authService.agregarAuthorizationHeader(this.httpHeaders) });
+  }
+
   getClienteLista():Observable<any>{
     console.log("llamado a rest :"+this.urlBase+"/clientes");
     return this.http.get(this.urlBase+"/clientes").pipe(map(response =>response as Usuario[]));
