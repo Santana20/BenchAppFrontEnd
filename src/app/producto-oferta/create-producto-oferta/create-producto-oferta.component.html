@@ -49,9 +49,9 @@
                 </div>
                 <div class="form-group">
                     <label for="Fdescuento">Descuento</label>
-                    <input type="number" min="0" pattern="^[0-9]+" class="form-control" id="Fdescuento" required [(ngModel)] ="productOfer.descuento" name="Fdescuento" #Fdescuento="ngModel">
+                    <input type="number" min="0" pattern="^[0-9]\d*$" class="form-control" id="Fdescuento" required [(ngModel)] ="productOfer.descuento" name="Fdescuento" #Fdescuento="ngModel">
                     <div *ngIf="Fdescuento.invalid && (Fdescuento.dirty || Fdescuento.touched)" class="alert alert-danger">
-                        <div *ngIF="Fdescuento.errors.pattern">El Descuento no puede ser negativo</div>
+                        <div *ngIf="Fdescuento.errors.pattern">El Descuento no puede ser negativo</div>
                         <div *ngIf="Fdescuento.errors.required">El Descuento es Requerido</div>
                         
                     </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Ftotal">Total</label>
-                    <input type="number" min="0" pattern="^[0-9]+" class="form-control" id="Ftotal" required [(ngModel)] ="productOfer.total" name="Ftotal" #Ftotal="ngModel">
+                    <input type="number" min="0" pattern="^[0-9]\d*$" class="form-control" id="Ftotal" required [(ngModel)] ="productOfer.total" name="Ftotal" #Ftotal="ngModel">
                     <div *ngIf="Ftotal.invalid && (Ftotal.dirty || Ftotal.touched)" class="alert alert-danger">
                         <div *ngIf="Ftotal.errors.required">El Total es Requerido</div>
                         <div *ngIf="Ftotal.errors.pattern">El Total no puede ser negativo</div>

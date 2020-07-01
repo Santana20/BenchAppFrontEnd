@@ -26,6 +26,7 @@
                     <input type="text" class="form-control" id="Ftelefono" required [(ngModel)] ="pizzeria.telefono" name="Ftelefono" #Ftelefono="ngModel">
                     <div *ngIf="Ftelefono.invalid && (Ftelefono.dirty || Ftelefono.touched)" class="alert alert-danger">
                         <div *ngIf="Ftelefono.errors.required">El Telefono es Requerido</div>
+                        <div *ngIf="Ftelefono.errors.maxlength"></div>
                     </div>
         
                 </div>
