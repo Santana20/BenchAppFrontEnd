@@ -1,5 +1,5 @@
-<p>listar-oferta works!</p>
-<h5>Buscardor De oferta po Titulo</h5>
+
+<h2>Buscardor De oferta por Titulo</h2>
 <form (ngSubmit)="searchOferta()" #buscarOferta="ngForm">
     <div>
         <label for="Ftitulo">Titulo Oferta </label>
@@ -13,6 +13,8 @@
     </div>
 </form>
 
+<br>
+<h2>Listado de ofertas</h2>
 <div class ="card border-dar mb-3">
     <h5 class ="card-title"></h5>
     <div>
@@ -36,7 +38,7 @@
                     </th>
                     <th>
                         <div>
-                            <a class="btn btn-danger" (click)="deleteOfert(p.codigo)">Eliminar</a>
+                            <a class="btn btn-danger" href="/listOferta" (click)="deleteOfert(p.codigo)">Eliminar</a>
                         </div>
                     </th>
                 </tr>
