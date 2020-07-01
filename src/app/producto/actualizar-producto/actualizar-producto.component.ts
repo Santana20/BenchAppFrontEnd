@@ -12,12 +12,21 @@ import  swal  from 'sweetalert2';
 })
 export class ActualizarProductoComponent implements OnInit {
   producto:Producto=new Producto();
+  p:Object;
   fcodigo:number;
   private imagenSeleccionada: File;
   productos:Producto[];
   constructor(private productoService:ProductoService,private router:Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params=>{
+      let codigo: number=+params.get('codigo');
+      if(codigo){
+        this.productoService.getProductoC(codigo).subscribe(producto=>{
+          this.producto=producto;
+        })
+      }
+    })
     this.cargando()
   }
 
@@ -30,7 +39,12 @@ export class ActualizarProductoComponent implements OnInit {
     console.log(this.producto);
   
     this.productoService.updateProducto(this.producto.codigo,this.producto).subscribe(
-      data=>this.router.navigate(['/producto/actimg/'+this.producto.codigo])
+      prod=>{
+        this.p=prod;
+      
+        this.subirImagen();
+        swal.fire("Se actualizo el producto","El producto: "+this.producto.nombre,'success')
+      }
     );
   }
 

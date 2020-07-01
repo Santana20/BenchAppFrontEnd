@@ -1,68 +1,75 @@
 <p>create-producto-oferta works!</p>
 
-<div>
-    <form (ngSubmit)="save()" #createProductOfert="ngForm">
-        <div class="form-group">
-            <label for="type">Stock</label>
-            <select [compareWith]="compararTipo" type="text" class="form-control" id="type"
-                  [(ngModel)]="productOfer.producto" name="type">
-                  <option [ngValue]="undefined">
-                        --- Seleccione Tipo ----
-                  </option>
-                  <option *ngFor="let tipo of productos" [ngValue]="tipo">
-                        {{tipo.nombre}}
-                  </option>
-            </select>
-      </div>
-
-      <div class="form-group">
-        <label for="type">Stock</label>
-        <select [compareWith]="compararTipoo" type="text" class="form-control" id="type"
-              [(ngModel)]="productOfer.oferta" name="type">
-              <option [ngValue]="undefined">
-                    --- Seleccione Tipo ----
-              </option>
-              <option *ngFor="let tipo of ofertas" [ngValue]="tipo">
-                    {{tipo.titulo}}
-              </option>
-        </select>
-  </div>
-
-        <div class="form-group">
-            <label for="Ffechaini">Fecha inicio</label>
-            <input type="date" class="form-control" id="Ffechaini" required [(ngModel)] ="productOfer.fecha_inicio" name="Ffechaini" #Ffechaini="ngModel">
-            <div *ngIf="Ffechaini.invalid && (Ffechaini.dirty || Ffechaini.touched)" class="alert alert-danger">
-                <div *ngIf="Ffechaini.errors.required">La Fecha Inicial es Requerida</div>
-            </div>
-
+<div class="card bg-dark text-white">
+    <div class="card-header">Crear Producto-Oferta</div>
+    <div class="card-body">
+        <div>
+            <form (ngSubmit)="save()" #createProductOfert="ngForm">
+                <div class="form-group">
+                    <label for="type">Stock</label>
+                    <select [compareWith]="compararTipo" type="text" class="form-control" id="type"
+                          [(ngModel)]="productOfer.producto" name="type">
+                          <option [ngValue]="undefined">
+                                --- Seleccione Tipo ----
+                          </option>
+                          <option *ngFor="let tipo of productos" [ngValue]="tipo">
+                                {{tipo.nombre}}
+                          </option>
+                    </select>
+              </div>
+        
+              <div class="form-group">
+                <label for="type">Stock</label>
+                <select [compareWith]="compararTipoo" type="text" class="form-control" id="type"
+                      [(ngModel)]="productOfer.oferta" name="type">
+                      <option [ngValue]="undefined">
+                            --- Seleccione Tipo ----
+                      </option>
+                      <option *ngFor="let tipo of ofertas" [ngValue]="tipo">
+                            {{tipo.titulo}}
+                      </option>
+                </select>
+          </div>
+        
+                <div class="form-group">
+                    <label for="Ffechaini">Fecha inicio</label>
+                    <input type="date" class="form-control" id="Ffechaini" required [(ngModel)] ="productOfer.fecha_inicio" name="Ffechaini" #Ffechaini="ngModel">
+                    <div *ngIf="Ffechaini.invalid && (Ffechaini.dirty || Ffechaini.touched)" class="alert alert-danger">
+                        <div *ngIf="Ffechaini.errors.required">La Fecha Inicial es Requerida</div>
+                    </div>
+        
+                </div>
+                <div class="form-group">
+                    <label for="Ffechafin">Fecha fin</label>
+                    <input type="date" class="form-control" id="Ffechafin" required [(ngModel)] ="productOfer.fecha_fin" name="Ffechafin" #Ffechafin="ngModel">
+                    <div *ngIf="Ffechafin.invalid && (Ffechafin.dirty || Ffechafin.touched)" class="alert alert-danger">
+                        <div *ngIf="Ffechafin.errors.required">La Fecha Final es Requerida</div>
+                    </div>
+        
+                </div>
+                <div class="form-group">
+                    <label for="Fdescuento">Descuento</label>
+                    <input type="number" class="form-control" id="Fdescuento" required [(ngModel)] ="productOfer.descuento" name="Fdescuento" #Fdescuento="ngModel">
+                    <div *ngIf="Fdescuento.invalid && (Fdescuento.dirty || Fdescuento.touched)" class="alert alert-danger">
+                        <div *ngIf="Fdescuento.errors.required">El Descuento es Requerido</div>
+                    </div>
+        
+                </div>
+                <div class="form-group">
+                    <label for="Ftotal">Total</label>
+                    <input type="number" class="form-control" id="Ftotal" required [(ngModel)] ="productOfer.total" name="Ftotal" #Ftotal="ngModel">
+                    <div *ngIf="Ftotal.invalid && (Ftotal.dirty || Ftotal.touched)" class="alert alert-danger">
+                        <div *ngIf="Ftotal.errors.required">El Total es Requerido</div>
+                    </div>
+        
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success" [disabled]="!createProductOfert.form.valid">Registrar</button>
+               </div>
+        
+            </form>
         </div>
-        <div class="form-group">
-            <label for="Ffechafin">Fecha fin</label>
-            <input type="date" class="form-control" id="Ffechafin" required [(ngModel)] ="productOfer.fecha_fin" name="Ffechafin" #Ffechafin="ngModel">
-            <div *ngIf="Ffechafin.invalid && (Ffechafin.dirty || Ffechafin.touched)" class="alert alert-danger">
-                <div *ngIf="Ffechafin.errors.required">La Fecha Final es Requerida</div>
-            </div>
-
-        </div>
-        <div class="form-group">
-            <label for="Fdescuento">Descuento</label>
-            <input type="number" class="form-control" id="Fdescuento" required [(ngModel)] ="productOfer.descuento" name="Fdescuento" #Fdescuento="ngModel">
-            <div *ngIf="Fdescuento.invalid && (Fdescuento.dirty || Fdescuento.touched)" class="alert alert-danger">
-                <div *ngIf="Fdescuento.errors.required">El Descuento es Requerido</div>
-            </div>
-
-        </div>
-        <div class="form-group">
-            <label for="Ftotal">Total</label>
-            <input type="number" class="form-control" id="Ftotal" required [(ngModel)] ="productOfer.total" name="Ftotal" #Ftotal="ngModel">
-            <div *ngIf="Ftotal.invalid && (Ftotal.dirty || Ftotal.touched)" class="alert alert-danger">
-                <div *ngIf="Ftotal.errors.required">El Total es Requerido</div>
-            </div>
-
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success" [disabled]="!createProductOfert.form.valid">Registrar</button>
-       </div>
-
-    </form>
+        
+    </div>
 </div>
+

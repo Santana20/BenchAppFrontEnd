@@ -49,5 +49,13 @@ export class OfertaService {
      map(response =>response as Oferta[])
     );
   }
+
+  //buscar por codigo
+  searchOfertaCodigo(fcodigo:number):Observable<any>{
+    console.log("llamando a rest:"+this.urlBase+"/oferta/"+fcodigo);
+    return this.http.get(this.urlBase+"/oferta/"+fcodigo).pipe(
+      map(response=>response as Oferta[])
+    );
+  }
   
 }

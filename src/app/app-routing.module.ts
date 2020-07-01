@@ -31,11 +31,11 @@ const routes: Routes = [
   {path:'newProducto',component:CreateProductoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   {path:'listProducto',component:ListarProductoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
 
-  {path:'updateProducto',component:ActualizarProductoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'updateProducto/:codigo',component:ActualizarProductoComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   
   {path:'newOferta',component:CreateOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   {path:'listOferta',component:ListarOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
-  {path:'updateOferta',component:ActualizarOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
+  {path:'updateOferta/:codigo',component:ActualizarOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   {path:'newPROOfer',component:CreateProductoOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   {path:'listarPROOfer',component:ListarProductoOfertaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
   {path:'ListPizzeria',component:ListarPizzeriaComponent, canActivate : [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},

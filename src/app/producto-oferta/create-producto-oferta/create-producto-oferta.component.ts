@@ -7,6 +7,8 @@ import { Oferta } from 'src/app/entidades/oferta';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { OfertaService } from 'src/app/servicios/oferta.service';
 
+import swal from 'sweetalert2'
+
 @Component({
   selector: 'app-create-producto-oferta',
   templateUrl: './create-producto-oferta.component.html',
@@ -36,8 +38,13 @@ export class CreateProductoOfertaComponent implements OnInit {
   save(){
     console.log(this.productOfer)
     this.productoOfertaService.createProductoOferta(this.productOfer,this.productOfer.producto.codigo,this.productOfer.oferta.codigo).subscribe(
-     data=>this.router.navigate(['/listarPROOfer'])
+     data=>this.router.navigate(['/listarPROOfer']),
+     
+     
     );
+    
+      swal.fire("Se creo el producto-oferta","El producto-oferta: "+this.productOfer.codigo,'success')
+     
   }
 
   compararTipop(o1:Producto, o2:Producto) : boolean{

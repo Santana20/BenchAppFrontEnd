@@ -76,6 +76,7 @@
                     <th>nombre</th>
                     <th>descripcion</th>
                     <th>precio</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
@@ -86,6 +87,11 @@
                     <th>{{p.nombre}}</th>
                     <th>{{p.descripcion}}</th>
                     <th>{{p.precio}}</th>
+                    <th>
+                        <div>
+                            <a class="btn btn-success" (click)="editarProducto(p.codigo)">Editar</a>
+                        </div>
+                    </th>
                     <th>
                         <div>
                             <a class="btn btn-danger" (click)="DeleteProducto(p.codigo)">Eliminar</a>

@@ -86,5 +86,9 @@ export class ListarProductoComponent implements OnInit {
     );
     this.router.navigate(['/listProducto'])
   }
+
+  editarProducto(index: number){
+    this.router.navigate(["/updateProducto/"+index])
+  }
   
 }

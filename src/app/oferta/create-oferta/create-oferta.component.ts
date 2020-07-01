@@ -3,6 +3,8 @@ import { Oferta } from 'src/app/entidades/oferta';
 import { OfertaService } from 'src/app/servicios/oferta.service';
 import { Router } from '@angular/router';
 
+import  swal  from "sweetalert2"
+
 @Component({
   selector: 'app-create-oferta',
   templateUrl: './create-oferta.component.html',
@@ -20,8 +22,12 @@ export class CreateOfertaComponent implements OnInit {
     console.log(this.oferta)
     this.fpizza=1;
     this.ofertaSerive.createOferta(this.oferta,this.fpizza).subscribe(
-     data=>this.router.navigate(['/listOferta'])
+      
+     data=>this.router.navigate(['/listOferta']),
+     
     );
+    
+    swal.fire("Se creo la oferta","La oferta: "+this.oferta.titulo,'success')
   }
 
 }

@@ -30,6 +30,10 @@ export class ListarOfertaComponent implements OnInit {
     );
   }
 
+  editarOferta(index:number){
+    this.router.navigate(["/updateOferta/"+index]);
+  }
+
   searchOferta(){
     this.ofertaService.searchOfertaTitulo(this.ftitulo).subscribe(
      oferta=>this.oferta=oferta

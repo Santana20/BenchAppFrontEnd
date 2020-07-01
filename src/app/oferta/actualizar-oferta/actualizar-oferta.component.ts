@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Oferta } from 'src/app/entidades/oferta';
 import { OfertaService } from 'src/app/servicios/oferta.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-actualizar-oferta',
@@ -12,10 +12,15 @@ export class ActualizarOfertaComponent implements OnInit {
   oferta:Oferta=new Oferta();
   fcodigo:number
   ofertas:Oferta[];
-  constructor(private ofertaService:OfertaService,private router:Router) { }
+  constructor(private ofertaService:OfertaService,private router:Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.cargando()
+    this.activatedRoute.paramMap.subscribe(params=>{
+      let codigo: number=+params.get('codigo');
+      this.fcodigo=codigo;
+    })
+    console.log(this.fcodigo)
+    //this.cargando()
   }
 
   cargando(){
@@ -26,7 +31,7 @@ export class ActualizarOfertaComponent implements OnInit {
 
   updateOferta(){
     console.log(this.oferta)
-    this.ofertaService.updateOferta(this.oferta,this.oferta.codigo).subscribe(
+    this.ofertaService.updateOferta(this.oferta,this.fcodigo).subscribe(
       data=>this.router.navigate(['/listOferta'])
     );
   }

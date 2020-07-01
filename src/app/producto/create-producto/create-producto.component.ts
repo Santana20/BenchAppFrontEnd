@@ -32,7 +32,6 @@ export class CreateProductoComponent implements OnInit {
       prod=>{
         this.p=prod;
       
-        console.log(this.p["codigo"])
         this.subirImagenC(this.p["codigo"]);
         
       }

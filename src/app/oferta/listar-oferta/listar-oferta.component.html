@@ -31,6 +31,11 @@
                     <th>{{p.descripcion}}</th>
                     <th>
                         <div>
+                            <a class="btn btn-success" (click)="editarOferta(p.codigo)">Editar</a>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
                             <a class="btn btn-danger" (click)="deleteOfert(p.codigo)">Eliminar</a>
                         </div>
                     </th>
