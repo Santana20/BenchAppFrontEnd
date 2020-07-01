@@ -3,6 +3,8 @@ import { Usuario } from 'src/app/entidades/cliente';
 import { Router } from '@angular/router';
 import { ClienteService } from 'src/app/servicios/cliente.service';
 
+import swal from 'sweetalert2'
+
 @Component({
   selector: 'app-registrar-admin',
   templateUrl: './registrar-admin.component.html',
@@ -24,7 +26,12 @@ export class RegistrarAdminComponent implements OnInit {
     console.log(this.admin);
     this.admin.enabled=true;
     this.adminService.createAdmin(this.admin).subscribe(
+      admin=>{
+        swal.fire("Se registro el usuario","Usuario: "+this.admin.username,'success')
+      },
+      
       data=>this.router.navigate(['/login'])
     );
+    this.router.navigate(['/login'])
   }
 }

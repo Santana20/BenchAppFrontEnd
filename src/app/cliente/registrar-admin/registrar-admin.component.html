@@ -1,86 +1,96 @@
 <p>registrar-admin works!</p>
-<div class=" body-contenido">
+
+<div class="card bg-dark text-white">
     
-    <div class="modal-header">
-        <h4 class="modal-title card-body text-center" >REGISTRO ADMIN</h4>    
-    </div>
-    <div class="modal-body">
-        <form (ngSubmit)="save()" #ClienteForm="ngForm" >
-            
-        <div class="form-group">
-            <input type="text" class="form-control" id="Fusername" [(ngModel)]="admin.username" name="Fusername" #Fusername="ngModel" placeholder="Username" required>
-
-            <div class="alert alert-danger" *ngIf="Fusername.invalid && (Fusername.dirty || Fusername.touched)">
-                <div *ngIf="Fusername.errors.required">
-                    Username es requerida.
-                </div>
+    <div class="card-body">
+        <div class=" body-contenido">
+    
+            <div class="modal-header">
+                <h4 class="modal-title card-body text-center" >REGISTRO ADMIN</h4>    
             </div>
-        </div>
-            
-        <div class="form-group">
-            <input type="text" class="form-control" id="Fnombre" [(ngModel)]="admin.nombre"
-                    name="Fnombre" required #Fnombre="ngModel" placeholder="Nombre">
-
-            <div class="alert alert-danger"
-                    *ngIf="Fnombre.invalid && (Fnombre.dirty || Fnombre.touched)">
-                <div *ngIf="Fnombre.errors.required">
-                        Nombre es requerida.
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-control" id="Fapellido" [(ngModel)]="admin.apellido" name="Fapellido" required #Fapellido="ngModel" placeholder="Apellido">
-
-            <div class="alert alert-danger"
-                    *ngIf="Fapellido.invalid && (Fapellido.dirty || Fapellido.touched)">
-                <div *ngIf="Fapellido.errors.required">
-                    Apellido es requerida.
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <input type="email" class="form-control" id="Femail" [(ngModel)]="admin.email"
-                    name="Femail" required #Femail="ngModel" placeholder="Email">
-
-            <div class="alert alert-danger"
-                    *ngIf="Femail.invalid && (Femail.dirty || Femail.touched)">
-                <div *ngIf="Femail.errors.required">
-                        Email es requerida.
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control" id="Fpasssword" [(ngModel)]="admin.password" name="Fpasssword" required #Fpasssword="ngModel" placeholder="Password">
-            
-            <div class="alert alert-danger"
-                    *ngIf="Fpasssword.invalid && (Fpasssword.dirty || Fpasssword.touched)">
-                <div *ngIf="Fpasssword.errors.required">
-                        Campo es requerida.
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control" id="Fconfirmpassword" [(ngModel)]="confirmpassword" name="Fconfirmpassword" #Fconfirmpassword="ngModel" placeholder="Confirmar contraseña" required>
-            
-            <div class="alert alert-danger"
-                    *ngIf="Fconfirmpassword.invalid && (Fconfirmpassword.dirty || Fconfirmpassword.touched)">
-                <div *ngIf="Fconfirmpassword.errors.required">
-                        Campo es requerida.
-                </div>
-                <div *ngIf="Fconfirmpassword.value != Fpasssword.value">
-                    Compruebe que sea igual a la contraseña.
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group card-body text-center">
-            <button type="submit" class="btn btn-success "
-            [disabled]="!ClienteForm.form.valid">Registrar</button>
-        </div>    
+            <div class="modal-body">
+                <form (ngSubmit)="save()" #ClienteForm="ngForm" >
+                    
+                <div class="form-group">
+                    <input type="text" class="form-control" id="Fusername" [(ngModel)]="admin.username" name="Fusername" #Fusername="ngModel" placeholder="Username" required>
         
-        </form>
+                    <div class="alert alert-danger" *ngIf="Fusername.invalid && (Fusername.dirty || Fusername.touched)">
+                        <div *ngIf="Fusername.errors.required">
+                            Username es requerida.
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="form-group">
+                    <input type="text" class="form-control" id="Fnombre" [(ngModel)]="admin.nombre"
+                            name="Fnombre" required #Fnombre="ngModel" placeholder="Nombre">
+        
+                    <div class="alert alert-danger"
+                            *ngIf="Fnombre.invalid && (Fnombre.dirty || Fnombre.touched)">
+                        <div *ngIf="Fnombre.errors.required">
+                                Nombre es requerida.
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <input type="text" class="form-control" id="Fapellido" [(ngModel)]="admin.apellido" name="Fapellido" required #Fapellido="ngModel" placeholder="Apellido">
+        
+                    <div class="alert alert-danger"
+                            *ngIf="Fapellido.invalid && (Fapellido.dirty || Fapellido.touched)">
+                        <div *ngIf="Fapellido.errors.required">
+                            Apellido es requerida.
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <input type="email" class="form-control" id="Femail" [(ngModel)]="admin.email"
+                            name="Femail" required email #Femail="ngModel" placeholder="example@gmail.com">
+        
+                    <div class="alert alert-danger"
+                            *ngIf="Femail.invalid && (Femail.dirty || Femail.touched)">
+                        <div *ngIf="Femail.errors.required">
+                                Email es requerida.
+                        </div>
+                        <div *ngIf="Femail.errors.email">
+                            Email es invalido.
+                        </div>
+                    </div>
+                    
+                </div>
+        
+                <div class="form-group">
+                    <input type="password" class="form-control" id="Fpasssword" [(ngModel)]="admin.password" name="Fpasssword" required #Fpasssword="ngModel" placeholder="Password">
+                    
+                    <div class="alert alert-danger"
+                            *ngIf="Fpasssword.invalid && (Fpasssword.dirty || Fpasssword.touched)">
+                        <div *ngIf="Fpasssword.errors.required">
+                                Campo es requerida.
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <input type="password" class="form-control" id="Fconfirmpassword" [(ngModel)]="confirmpassword" name="Fconfirmpassword" #Fconfirmpassword="ngModel" placeholder="Confirmar contraseña" required>
+                    
+                    <div class="alert alert-danger"
+                            *ngIf="Fconfirmpassword.invalid && (Fconfirmpassword.dirty || Fconfirmpassword.touched)">
+                        <div *ngIf="Fconfirmpassword.errors.required">
+                                Campo es requerida.
+                        </div>
+                        <div *ngIf="Fconfirmpassword.value != Fpasssword.value">
+                            Compruebe que sea igual a la contraseña.
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group card-body text-center">
+                    <button type="submit" class="btn btn-success "
+                    [disabled]="!ClienteForm.form.valid">Registrar</button>
+                </div>    
+                
+                </form>
+            </div>
     </div>
+</div>
